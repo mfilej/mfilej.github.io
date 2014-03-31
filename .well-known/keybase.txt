@@ -1,0 +1,64 @@
+==================================================================
+https://keybase.io/mfilej
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://miha.filej.net
+  * I am mfilej (https://keybase.io/mfilej) on keybase.
+  * I have a public key with fingerprint C746 EB00 F18F 87C3 F44D  D10C 9A17 9AF8 131C DC0C
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "c746eb00f18f87c3f44dd10c9a179af8131cdc0c",
+            "host": "keybase.io",
+            "key_id": "9A179AF8131CDC0C",
+            "uid": "aef57054d94d0179208691001f1dbb00",
+            "username": "mfilej"
+        },
+        "service": {
+            "hostname": "miha.filej.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1396291806,
+    "expire_in": 157680000,
+    "prev": "6851583af83f889ab219c2ba28733673e8c5bb81048cf2fe9163e33c79796c1e",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owE1kWtIFFEUx3fVxGdELUaiqJNUyLrM3Zmdx37TdVWK3FRMPyTrPO7szqYz2+y4
+m8mKZVH2oKIHVFhgEWUQlRKaZIoRRvaC2OpDgrkhC5lELxCM7kjeL5d7/r/zP+fc
+cyY72ZRkjkzcb9jUdww3vxj/zpvq2eGZToxXxQ7M2YnthSuXJCs+qAU1WdExJybQ
+JAV5HJcAIzG0QEgkKYoAF1gO0CwnMYAAgijgAmbF/GrIyEA2PBeCNllFMfTwyiKK
+smWIL6s0eFeFC3chrX1F4KDkoHEHKbKkiCPGjjMUC3AcSEDkUWEDDEFN4dogotsk
+uRUGsKgVQ7GwLECjY6Pwqi77OdsKY1OgjnKDmqqrgtqKNL+uB51Gqt4RNNgI5L3/
+Xby8rIhobpQQhlpIVhXMCRAp6LJhCwiWsrOAwSkrBvcHZQ16ZYNw0BSDo2OUgWFk
+STEO4GAI9C+ExDAsx9sBK9h5zs7QBEHRBGQEB88zACcZQbJLkAUUAQlCoFmapQQA
+MWOufYqKOUnUJudDliHZp3B6uwaxaK85L8VkTjKlrkkyNmfKSF+3us+i/DTT5e6O
+B7NV7gx1omn9q+tczProcVpJ7GhLSVGi8FtAqE0JFP/6OO0xlzf2HK6bstCnLhzZ
+OfimpG94LHtj6fvcvsi4uyBW/tDS01TeGthcXR8hB0+2D9iyXQuW5ebpe3v+9Nf2
+DG4o6NoWvzvVf7bwFtUf/9tluZY2Of8sEcvMSWgvB84tql8abzw5sHxnKat6Zveh
+aPHaXSPudzVukfo5me6Z/nE6OTk3Z/wzlZeU5e3Ov9nkPMjNVHFx69Sl0rEl5cTT
+24n5luaLel74/IeF0dfQ0Tu0HZN8syOW3KFPi6N1z/0NqRVbv769smPO78mMe35H
+M71DNcfTK+c8V7f8Aw==
+=V7Ic
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mfilej
+
+==================================================================
