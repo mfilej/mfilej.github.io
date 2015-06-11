@@ -22,7 +22,7 @@ Each can be constructed in at least the following ways: with literals,
 conversion methods  defined on `Object` and [capitalized conversion
 methods][cap-con] defined on `Kernel`.
 
-[Floating point][wiki-float] representation is only an approxiamtion of [real
+[Floating point][wiki-float] representation is only an approximation of [real
 numbers][wiki-real]. In order to represent very large or very accurate
 floating point numbers in Ruby, we have to resort to `BigDecimal`.[^3] From
 [the documentation][bigd-ruby-doc]:
