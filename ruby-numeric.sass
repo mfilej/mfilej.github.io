@@ -1,0 +1,53 @@
+---
+---
+
+.ruby-numeric-types-table
+  margin: 0 auto
+  th, td
+  th
+    background: #efefef
+
+.ruby-numeric-class-hierarchy
+  margin: 0 4rem 2rem
+
+  > li
+    padding-top: 0 !important
+
+  ul
+    padding-left: 3rem
+
+  li
+    position: relative
+    display: block
+    padding-top: 1rem
+
+    &:before
+      position: absolute
+      top: -3rem
+      left: -2rem
+      width: 2rem
+      height: 5rem
+      content: "\200B"
+      border-bottom-left-radius: 9px
+      border: 1px solid #aaa
+      border-width: 0px 0px 1px 1px
+  & > li:before
+    border-bottom: none
+
+  li:first-child:before
+    top: 0
+    height: 2rem
+
+  & > li:first-child:before
+    border: none
+
+  code
+    display: block
+    padding: 0 0.6rem
+    border: 1px solid #aaa
+    border-radius: 3px
+    width: 6rem
+    height: 2rem
+    line-height: 2rem
+    font-size: 14px
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15)
