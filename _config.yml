@@ -1,0 +1,6 @@
+highlighter: pygments
+safe: true
+lsi: false
+permalink: /:title.html
+sass:
+  sass_dir: _sass
