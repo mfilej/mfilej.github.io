@@ -8,19 +8,28 @@ html
   font-size: 18px
 
 body
-  max-width: 650px
-  margin: 0 auto
+  margin: 0
+  width: 100%
+  padding: 0 0 200px
   font-family: "Avenir Next", "Helvetica Neue", "Helvetica", sans-serif
   line-height: 1.5
-  padding: 0 10px 200px
+
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6,
+  &>p, &>blockquote, &>code, &>figure,
+  &>ul, &>ol, &>table,
+  &>.footnotes
+    box-sizing: border-box
+    max-width: 650px
+    margin:
+      left: auto
+      right: auto
 
 blockquote
   font-family: "Georgia", serif
   color: #666
   font-size: 0.9rem
   border-left: 6px solid #ddd
-  margin-left: 0
-  padding-left: 1.6em
+  padding-left: 1.5rem
 
 a:link
   color: #295091
