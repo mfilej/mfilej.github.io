@@ -17,8 +17,7 @@ bothered by having two almost-identical images in Photo Library. I know I am.
 
 Why would I want to keep both images? Well, I have zero confidence in my photo
 editing abilities. When I look at my photos that I edited two or more years
-ago, I often think: "You should've gone easier on the editing, dummy!"
-[^editing]
+ago, I often think: "You should've gone easier on the editing, dummy!"[^editing]
 
 <figure class="full-width image-collection">
   <ul>
