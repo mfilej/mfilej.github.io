@@ -3,6 +3,15 @@
 
 @import syntax
 @import bigfoot
+@import rebox
+
+$content-width: 650px
+
+=content-width($width: $content-width)
+  max-width: $content-width
+  margin:
+    left: auto
+    right: auto
 
 html
   font-size: 18px
@@ -10,7 +19,7 @@ html
 body
   margin: 0
   width: 100%
-  padding: 0 0 200px
+  padding: 2rem 0 200px
   font-family: "Avenir Next", "Helvetica Neue", "Helvetica", sans-serif
   line-height: 1.5
 
@@ -18,18 +27,30 @@ body
   &>p, &>blockquote, &>code, &>figure,
   &>ul, &>ol, &>table,
   &>.footnotes
+    +content-width
     box-sizing: border-box
-    max-width: 650px
+
+figure
+  img
+    display: block
     margin:
       left: auto
       right: auto
 
-blockquote
+blockquote,
+figcaption
   font-family: "Georgia", serif
   color: #666
   font-size: 0.9rem
+
+blockquote
   border-left: 6px solid #ddd
   padding-left: 1.5rem
+
+figcaption
+  font-style: italic
+  text-align: center
+  padding: 0.6rem 0 0.8rem
 
 a:link
   color: #295091
@@ -59,8 +80,40 @@ pre > code
   display: block
   background: #efefef
 
+.intro
+  font-family: "Georgia", serif
+  font-style: italic
+  color: #666
+
 .footnotes
   margin-top: 4em
   padding-top: 1em
   border-top: 1px solid #ccc
   font-size: 0.9em
+
+body > .full-width
+  display: block
+  max-width: 100%
+  margin: 0
+  padding:
+    top: 1rem
+    bottom: 1rem
+
+.screenshot
+  img
+    box-shadow: 0 0 5px 3px #eee
+  &.full-width
+    img
+      width: 100%
+
+.image-collection
+  display: table
+  ul
+    display: table-row
+  li
+    display: table-cell
+  img
+    width: 100%
+    cursor: zoom-in
+  figcaption
+    +content-width
