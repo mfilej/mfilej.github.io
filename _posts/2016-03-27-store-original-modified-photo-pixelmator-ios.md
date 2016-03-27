@@ -12,7 +12,7 @@ original), you are bothered by seeing two almost-identical photos in your
 library and you don't want to get rid of the original photo.
 {: .intro}
 
-With a certain amount of self-diagnosed OCD, it's likely that one would be
+Given a certain amount of self-diagnosed OCD, it's likely that one would be
 bothered by having two almost-identical images in Photo Library. I know I am.
 
 Why would I want to keep both images? Well, I have zero confidence in my photo
