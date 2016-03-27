@@ -9,6 +9,7 @@
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="/js/bigfoot.min.js"></script>
+<script src="/js/jquery-rebox.js"></script>
 <script>
   $.bigfoot({
     actionOriginalFN: "hide",
@@ -24,5 +25,21 @@
         '</button>' +
       '</div>'
     ),
+  });
+
+  $(".image-collection").rebox({
+    selector: "img",
+    captionAttr: "alt",
+    cycle: false,
+    template: "imageOnly",
+    templates: {
+      imageOnly: function(item, settings, callback) {
+        var src = item.attr("src"),
+          alt = item.attr("alt"),
+          klass = settings.theme + "-content"
+
+        return $("<img>", {src: src, alt: alt, class: klass}).load(callback);
+      }
+    }
   });
 </script>
