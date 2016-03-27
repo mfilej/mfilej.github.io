@@ -1,6 +1,8 @@
-highlighter: pygments
+markdown: kramdown
+highlighter: rouge
 safe: true
 lsi: false
-permalink: /:title.html
+exclude: [bin, CNAME, Gemfile, Gemfile.lock]
+permalink: /:title
 sass:
   sass_dir: _sass
