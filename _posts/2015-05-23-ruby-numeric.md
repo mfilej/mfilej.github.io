@@ -14,6 +14,10 @@ actually not that hard to remember once laid out:
 
 {% include ruby-numeric-tree.html %}
 
+:warning: **Update**: `Fixnum` and `Bignum` have been unified into `Integer` in Ruby 2.4 and
+are planned to be deprecated in the future. See [Unify Fixnum and Bignum into
+Integer][unify].
+
 Everything starts with the [`Numeric`][numeric-ruby-doc] superclass, which
 also includes the [`Comparable`][comparable-ruby-doc] module.
 
@@ -44,9 +48,11 @@ Float                       |  `1.1`  | `to_f`  | `Float()`
 
 ## What about `Fixnum` and `Bignum`?
 
-Ruby uses instances of these two
-classes to represent integers. The interesting part is that we never actually
-create `Integer` instances:
+:warning: **Update**: This chapter only applies to Ruby versions before 2.4.
+([#12005][unify])
+
+Ruby uses instances of these two classes to represent integers. The
+interesting part is that we never actually create `Integer` instances:
 
 {% highlight ruby %}
 >> Integer("1").class
@@ -116,6 +122,7 @@ The object ids differ, showing that the two variables point to different objects
 [bignum-ruby-doc]: http://ruby-doc.org/core-2.2.2/Bignum.html
 [wiki-float]: https://en.wikipedia.org/wiki/Floating_point
 [wiki-real]: https://en.wikipedia.org/wiki/Real_number
+[unify]: https://bugs.ruby-lang.org/issues/12005
 
 [^1]: I was relieved to find out that I wasn't [alone][ruby-positive].
 [^2]: `BigDecimal` is the only numeric class in Ruby that can be instantiated with a constructor method, e.g.: `BigDecimal.new("1.2")` --- note that the argument is passed as a string to work around the imprecise nature of floats.
