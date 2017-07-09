@@ -1,6 +1,7 @@
 <!doctype html>
 <title>Miha Filej</title>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width" />
 <style>
   body {
     font-family: courier, monospace;
@@ -9,6 +10,9 @@
     background-color: #f1f2eb;
     
   }
+  body {
+    padding-left: 15%;
+  }
   body, :link, :visited {
     color: #666;
     text-decoration: none;
@@ -16,13 +20,19 @@
   h1 {
     color: #999;
     font-weight: normal;
-    padding-left: 15%;
+  }
+  h2 {
+    color: #333;
+    font-size: 1em;
+    font-weight: normal;
+    margin-bottom: 0;
   }
   ul {
-    padding-left: 15%
+    margin-top: 0;
+    padding-left: .8em;
   }
   li {
-    list-style: none
+    list-style: none;
   }
   li:hover::before {
     content: "\2192 \0020";
@@ -32,13 +42,32 @@
   }
 </style>
 
-<h1>
-  Miha Filej
-</h1>
+<header>
+  <img alt="Avatar" src="avatar@3x.png" width="150">
+  <h1>Miha Filej</h1>
+</header>
+
+<h2>
+  Contact me
+</h2>
 
 <ul>
   <li><a href="mailto:miha@filej.net">email</a></li>
+</ul>
+
+<h2>
+  Hire me
+</h2>
+
+<ul>
   <li><a href="/cv">résumé</a></li>
+</ul>
+
+<h2>
+  Links
+</h2>
+
+<ul>
   <li><a href="http://github.com/mfilej">github</a></li>
   <li><a href="http://twitter.com/mfilej">twitter</a></li>
   <li><a href="http://keybase.io/mfilej">keybase</a></li>
