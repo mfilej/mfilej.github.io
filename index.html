@@ -3,23 +3,20 @@
 <meta charset="utf-8">
 <style>
   body {
-    font-family: meslo, menlo, "dejavu sans mono", courier, monospace;
+    font-family: courier, monospace;
     font-size: 1.4em;
     line-height: 1.8em;
     background-color: #f1f2eb;
-    text-shadow: white 0 1px 0;
     
   }
   body, :link, :visited {
-    color: #777877;
+    color: #666;
     text-decoration: none;
   }
   h1 {
-    color: #4ac7f3;
+    color: #999;
+    font-weight: normal;
     padding-left: 15%;
-  }
-  a:hover {
-    color: #f04042
   }
   ul {
     padding-left: 15%
@@ -27,8 +24,11 @@
   li {
     list-style: none
   }
-  li:hover {
-    list-style: circle
+  li:hover::before {
+    content: "\2192 \0020";
+    display: inline-block;
+    margin-left: -1.3em;
+    width: 1.3em;
   }
 </style>
 
@@ -47,10 +47,6 @@
   <li><a href="http://www.facebook.com/mfilej">facebook</a></li>
   <li><a href="/cv">résumé</a></li>
 </ul>
-
-<!-- Color theme kindly stolen from Holman's slides:
-     http://zachholman.com/talk/how-github-uses-github-to-build-github 
--->
 
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(66481511); }catch(e){}</script>
