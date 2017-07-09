@@ -8,10 +8,9 @@
     font-size: 1.4em;
     line-height: 1.8em;
     background-color: #f1f2eb;
-    
-  }
-  body {
-    padding-left: 15%;
+    margin: 0 auto;
+    padding: 0 15%;
+    max-width: 300px;
   }
   body, :link, :visited {
     color: #666;
@@ -40,6 +39,22 @@
     margin-left: -1.3em;
     width: 1.3em;
   }
+  @media only screen and (max-device-width : 450px) {
+    body {
+      padding: 5%;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    section {
+      margin: 0 auto;
+      width: 200px;
+    }
+  }
 </style>
 
 <header>
@@ -47,34 +62,36 @@
   <h1>Miha Filej</h1>
 </header>
 
-<h2>
-  Contact me
-</h2>
+<section>
+  <h2>
+    Contact me
+  </h2>
 
-<ul>
-  <li><a href="mailto:miha@filej.net">email</a></li>
-</ul>
+  <ul>
+    <li><a href="mailto:miha@filej.net">email</a></li>
+  </ul>
 
-<h2>
-  Hire me
-</h2>
+  <h2>
+    Hire me
+  </h2>
 
-<ul>
-  <li><a href="/cv">résumé</a></li>
-</ul>
+  <ul>
+    <li><a href="/cv">résumé</a></li>
+  </ul>
 
-<h2>
-  Links
-</h2>
+  <h2>
+    Links
+  </h2>
 
-<ul>
-  <li><a href="http://github.com/mfilej">github</a></li>
-  <li><a href="http://twitter.com/mfilej">twitter</a></li>
-  <li><a href="http://keybase.io/mfilej">keybase</a></li>
-  <li><a href="http://instagram.com/mfilej">instagram</a></li>
-  <li><a href="http://www.flickr.com/photos/mfilej/">flickr</a></li>
-  <li><a href="http://www.last.fm/user/mfilej">last.fm</a></li>
-</ul>
+  <ul>
+    <li><a href="http://github.com/mfilej">github</a></li>
+    <li><a href="http://twitter.com/mfilej">twitter</a></li>
+    <li><a href="http://keybase.io/mfilej">keybase</a></li>
+    <li><a href="http://instagram.com/mfilej">instagram</a></li>
+    <li><a href="http://www.flickr.com/photos/mfilej/">flickr</a></li>
+    <li><a href="http://www.last.fm/user/mfilej">last.fm</a></li>
+  </ul>
+</section>
 
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(66481511); }catch(e){}</script>
