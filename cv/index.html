@@ -73,6 +73,21 @@
   .formal-education > li+li {
     padding-top: 1em;
   }
+
+  @media print {
+    @page {
+      margin: 2.5cm 2cm;
+    }
+    header {
+      margin-bottom: 1cm;
+    }
+    h2 {
+      page-break-before: always;
+    }
+    section {
+      page-break-inside: avoid;
+    }
+  }
 </style>
 
 <header>
@@ -103,78 +118,91 @@
 
 <h2>Work history</h2>
 
-<h3><b>Skillsoft</b><sup><a href="#fss">1</a></sup> (Dec 2016—May 2017)</h3>
-<p>
-  Joined a dynaimic set of distributed teams developing a new 
-  <a href="http://www.skillsoft.com/percipio/">learning management product</a>.
-  The distributed nature of the project presented several techical as well as
-  inter-personal challenges. On the techical side code needed to be robust
-  enough to cope with notoriously unreliable network calls and coordinate
-  between numerous network services. On the human side, the implementation of
-  most features required coordination between developers from different teams,
-  from designing and agreeing on an interface, to implementing and testing it.
-  Work organization was fairly autonomous with self-reporting to management on
-  a regular basis.
+<section>
+  <h3><b>Skillsoft</b><sup><a href="#fss">1</a></sup> (Dec 2016—May 2017)</h3>
+  <p>
+    Joined a dynaimic set of distributed teams developing a new 
+    <a href="http://www.skillsoft.com/percipio/">learning management product</a>.
+    The distributed nature of the project presented several techical as well as
+    inter-personal challenges. On the techical side code needed to be robust
+    enough to cope with notoriously unreliable network calls and coordinate
+    between numerous network services. On the human side, the implementation of
+    most features required coordination between developers from different teams,
+    from designing and agreeing on an interface, to implementing and testing it.
+    Work organization was fairly autonomous with self-reporting to management on
+    a regular basis.
+  </p>
   <aside>
     Technologies: Kubernetes, Docker, Ruby, Rails, Postgresql, Sidekiq, Redis, Kafka.
   </aside>
-</p>
+</section>
 
-<h3><b>Leadformance</b><sup><a href="#flf">2</a></sup> (Oct 2013—Nov 2016)</h3>
-<p>
-  Initially I was part of a team of three developers where we led the
-  development of a fairy complex store locator application. The main challenge
-  was to manage the complexity of the business logic and handle the constant
-  onslaught of new feature requests and edge cases from the various clients;
-  finding ways to abstract the new requirements within existing logic, looking
-  for alternate ways of solving the problem with lesser (or no) impact on the
-  codebase, and sometimes simply advising the business that satisfying certain
-  requirements could have unbearable maintenance costs in the future. I also
-  helped the company with hiring, onboarding, and mentoring new developers to
-  grow the team to 10 developers. On the technical side, the challenges also
-  included improving the performance of the application and database in order
-  to handle an ever increasing number of users.
+<section>
+  <h3><b>Leadformance</b><sup><a href="#flf">2</a></sup> (Oct 2013—Nov 2016)</h3>
+  <p>
+    Initially I was part of a team of three developers where we led the
+    development of a fairy complex store locator application. The main challenge
+    was to manage the complexity of the business logic and handle the constant
+    onslaught of new feature requests and edge cases from the various clients;
+    finding ways to abstract the new requirements within existing logic, looking
+    for alternate ways of solving the problem with lesser (or no) impact on the
+    codebase, and sometimes simply advising the business that satisfying certain
+    requirements could have unbearable maintenance costs in the future. I also
+    helped the company with hiring, onboarding, and mentoring new developers to
+    grow the team to 10 developers. On the technical side, the challenges also
+    included improving the performance of the application and database in order
+    to handle an ever increasing number of users.
+  </p>
   <aside>
     Technologies: Ruby, Rails, Postgresql, DelayedJob, Redis, Varnish, Angular.
   </aside>
-</p>
+</section>
 
-<h3><b>Betribes/ClubJudge</b><sup><a href="#fcj">3</a></sup> (Nov 2011—Jul 2013)</h3>
-<p>
-  Nightlife club discovery and rating. Responsible for the JSON API that
-  powers the frontend application, mobile apps, and third-party clients.
-  Implemented music genre recommendation algorithms. Built Ember.js and
-  Backbone.js prototypes.
+<section>
+  <h3><b>Betribes/ClubJudge</b><sup><a href="#fcj">3</a></sup> (Nov 2011—Jul 2013)</h3>
+  <p>
+    Nightlife club discovery and rating. Responsible for the JSON API that
+    powers the frontend application, mobile apps, and third-party clients.
+    Implemented music genre recommendation algorithms. Built Ember.js and
+    Backbone.js prototypes.
+  </p>
   <aside>
     Technologies: Ruby on Rails, Postgresql, Riak, Redis, Resque. 
   </aside>
-</p>
+</section>
 
-<h3><b>Marketana</b> (Nov 2010—Jun 2011)</h3>
-<p>
-  Competitor and market tracking application built on Rails, using text
-  classification and indexing algorithms, feed crawling and&nbsp;aggregation.
-  Developed the whole web stack, from frontend, to backend, to database.
-</p>
+<section>
+  <h3><b>Marketana</b> (Nov 2010—Jun 2011)</h3>
+  <p>
+    Competitor and market tracking application built on Rails, using text
+    classification and indexing algorithms, feed crawling and&nbsp;aggregation.
+    Developed the whole web stack, from frontend, to backend, to database.
+  </p>
+</section>
 
-<h3><b>LiveCliq</b><sup><a href="#flq">4</a></sup> (Sep 2008—Nov 2009)</h3>
-<p>
-  Live video streaming and sharing. Helped stabilize the project with a major
-  refactoring. Ruby on Rails web application, Merb REST API for mobile
-  clients. Full-stack development.
+<section>
+  <h3><b>LiveCliq</b><sup><a href="#flq">4</a></sup> (Sep 2008—Nov 2009)</h3>
+  <p>
+    Live video streaming and sharing. Helped stabilize the project with a major
+    refactoring. Ruby on Rails web application, Merb REST API for mobile
+    clients. Full-stack development.
+  </p>
   <aside>
     Also used: MySQL, background jobs, distributed deployment with&nbsp;capistrano.
   </aside>
-</p>
 
-<h3><b>OdpiralniČasi</b><sup><a href="#foc">5</a></sup> (Aug 2007—Apr 2009)</h3>
-<p>
-  Opening hours for stores and restaurants. I developed some features and
-  refactored part of the application.
+</section>
+
+<section>
+  <h3><b>OdpiralniČasi</b><sup><a href="#foc">5</a></sup> (Aug 2007—Apr 2009)</h3>
+  <p>
+    Opening hours for stores and restaurants. I developed some features and
+    refactored part of the application.
+  </p>
   <aside>
     Technologies: Ruby on Rails, MySQL, geocoding and&nbsp;geo-search.
   </aside>
-</p>
+</section>
 
 <h2>Formal education</h2>
 
