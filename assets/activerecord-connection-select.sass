@@ -1,0 +1,91 @@
+---
+---
+
+=important-code
+  font-weight: bold
+  color: mix($secondary-color, #555, 10%)
+
+$result-indicator-width: 23px
+$primary-color: #cf4165
+$secondary-color: #7dccb0
+$table-line-height: 1.3em
+
+table.database-table
+  font-family: monaco, monospace
+  font-size: 80%
+  th, td
+    border-style: none
+    line-height: 1
+    text-align: center
+  th
+    border-bottom-style: solid
+
+table.highlight
+  table-layout: fixed
+  border-collapse: separate
+  border-spacing: 5px
+  line-height: $table-line-height
+
+  th, td
+    padding: 12px 18px
+    border: none
+    &.blank
+      background-color: transparent
+    &.not-available
+      background-color: #fafafa
+  th
+    background-color: mix($secondary-color, #fff, 20%)
+    color: mix($secondary-color, #000, 50%)
+    font-weight: normal
+  td
+    vertical-align: top
+    background-color: mix($secondary-color, #fff, 7%)
+
+  thead th
+    text-align: left
+
+  tbody th
+    text-align: right
+
+  td
+    min-width: 300px
+
+  code
+    display: block
+
+    &.line-invocation
+      .n
+        +important-code
+      .p+.s2
+        display: flex
+        align-items: center
+        padding-left: $result-indicator-width
+        line-height: $table-line-height
+        height: 2 * $table-line-height
+        vertical-align: middle
+
+
+    &.line-result
+      position: relative
+      margin-left: $result-indicator-width
+      &::before
+        content: "⇒"
+        position: absolute
+        left: -$result-indicator-width
+        +important-code
+      .s2
+        border-radius: 3px
+        background: transparentize($primary-color, .93)
+      .c1
+        color: #777
+
+    .s2
+      color: $primary-color
+    .p, .o
+      opacity: .35
+    .c1
+      display: block
+      white-space: nowrap
+      overflow-x: hidden
+      max-width: 400px
+

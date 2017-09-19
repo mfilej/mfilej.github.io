@@ -1,0 +1,111 @@
+require "bundler"
+Bundler.require
+
+task :default do
+  require "fileutils"
+  require "active_record"
+  require "rouge/formatters/html_linewise"
+
+  SQLITE_FILE = "./db.sqlite"
+  FileUtils.rm SQLITE_FILE if File.exist? SQLITE_FILE
+
+  FileUtils.rm_rf "snippets"
+  FileUtils.mkdir "snippets"
+
+  def dump_table(query)
+    result = ActiveRecord::Base.connection.select_all(query)
+
+    <<-TABLE.gsub /^\s*/, ""
+    <table class="database-table">
+      <tr>#{dump_columns(result.columns, tag: "th")}</tr>
+      #{dump_rows(result.rows)}
+    </table>
+    TABLE
+  end
+
+  def dump_columns(columns, tag: "td")
+    columns.map { |col|
+      "<#{tag}>#{col}</#{tag}>"
+    }.join
+  end
+
+  def dump_rows(rows)
+    rows.map { |row|
+      "<tr>#{dump_columns(row)}</tr>"
+    }.join
+  end
+
+  class LinewiseFormatter < Rouge::Formatter
+    def initialize
+      @formatter = Rouge::Formatters::HTML.new
+    end
+
+    def stream(tokens, &b)
+      line_nr = 0
+      token_lines(tokens) do |line|
+        line_nr += 1
+        yield "<code class=#{line_class(line_nr).inspect}>"
+        line.each do |tok, val|
+          yield @formatter.span(tok, val)
+        end
+        yield "</code>"
+      end
+    end
+
+    def line_class(line_nr)
+      case line_nr
+      when 1
+        "line-invocation"
+      when 2
+        "line-result"
+      else
+        raise "Too many lines"
+      end
+    end
+  end
+
+  ActiveRecord::Base.establish_connection(
+    adapter: "sqlite3",
+    database: SQLITE_FILE
+  )
+
+  ActiveRecord::Migration.class_eval do
+    create_table :colors do |t|
+      t.string :name
+      t.string :hex
+    end
+  end
+
+  class Color < ActiveRecord::Base
+  end
+
+  Color.create! name: "red", hex: "f00"
+  Color.create! name: "green", hex: "0f0"
+  Color.create! name: "blue", hex: "00f"
+
+  SNIPPETS = {
+    select_rows: "SELECT name, hex FROM colors",
+    select_value: "SELECT name FROM colors WHERE id = 1",
+    select_values: "SELECT name FROM colors",
+    select_one: "SELECT name, hex FROM colors WHERE id = 1",
+    select_all: "SELECT id, name, hex FROM colors",
+  }
+
+  File.write("snippets/table.html", dump_table(SNIPPETS[:select_all]))
+
+  formatter = LinewiseFormatter.new()
+  lexer = Rouge::Lexers::Ruby.new
+
+  SNIPPETS.each_pair do |method, sql|
+    result = ActiveRecord::Base.connection.public_send(method, sql)
+
+    source = [
+      "#{method}(#{sql.inspect})",
+      result.inspect
+    ].join("\n")
+
+    highlighted = formatter.format(lexer.lex(source))
+
+    File.write("snippets/#{method}.html", highlighted)
+  end
+end
