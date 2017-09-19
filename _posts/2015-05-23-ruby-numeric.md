@@ -3,7 +3,7 @@ title: Numeric types in Ruby
 layout: default
 ---
 
-<link rel="stylesheet" href="/ruby-numeric.css">
+<link rel="stylesheet" href="/assets/ruby-numeric.css">
 
 # Numeric types in Ruby
 
