@@ -1,6 +1,7 @@
 ---
 title: Numeric types in Ruby
 layout: default
+category: ruby
 ---
 
 <link rel="stylesheet" href="/assets/ruby-numeric.css">

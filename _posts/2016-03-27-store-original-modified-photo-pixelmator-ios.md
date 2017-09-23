@@ -1,6 +1,7 @@
 ---
 title: Store original and edited as one photo using Pixelmator on iOS
 layout: default
+category: ios
 ---
 
 # {{ page.title }}

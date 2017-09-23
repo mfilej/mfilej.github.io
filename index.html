@@ -1,3 +1,6 @@
+---
+---
+
 <!doctype html>
 <title>Miha Filej</title>
 <meta charset="utf-8">
@@ -49,6 +52,18 @@
       width: 200px;
     }
   }
+  .articles li {
+    font-size: 0.7em;
+    line-height: 1.2em;
+    white-space: nowrap;
+  }
+  .articles li:before {
+    content: "\2192 \0020";
+    display: inline-block;
+    margin-left: -.9em;
+    width: .9em;
+  }
+
   @media (pointer:fine) {
     li:hover::before {
       content: "\2192 \0020";
@@ -65,6 +80,19 @@
 </header>
 
 <section>
+  <h2>
+    Read
+  </h2>
+
+  <ul class="articles">
+    {% for post in site.categories.ruby %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    {% for post in site.categories.ios %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
   <h2>
     Contact me
   </h2>
