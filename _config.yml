@@ -1,10 +1,11 @@
 markdown: kramdown
 highlighter: rouge
-safe: true
+safe: false
 lsi: false
 exclude: [bin, CNAME, Gemfile, Gemfile.lock]
-permalink: /:title
+permalink: /:categories/:title
 plugins:
   - jemoji
+  - jekyll-redirect-from
 sass:
   sass_dir: _sass

@@ -1,7 +1,9 @@
 ---
 title: Store original and edited as one photo using Pixelmator on iOS
 layout: default
-category: ios
+category: article
+tags: ios
+redirect_from: "/store-original-modified-photo-pixelmator-ios"
 ---
 
 # {{ page.title }}
