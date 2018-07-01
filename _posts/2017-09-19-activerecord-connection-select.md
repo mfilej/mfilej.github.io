@@ -1,6 +1,6 @@
 ---
 title: ActiveRecord connection select cheat sheet
-layout: default
+layout: article
 category: article
 tags: [ruby, rails, activerecord]
 redirect_from: "/activerecord-connection-select"

@@ -25,12 +25,27 @@ body
   font-family: "Avenir Next", "Helvetica Neue", "Helvetica", sans-serif
   line-height: 1.5
 
+  &>header,
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6,
   &>p, &>blockquote, &>code, &>figure,
   &>ul, &>ol, &>table,
   &>.footnotes
     +content-width
     box-sizing: border-box
+
+body>header
+  text-align: center
+  padding-bottom: 1rem
+  margin-bottom: 1rem
+  &>h1
+    color: #999
+    font-weight: 300
+    font-size: 36px
+    margin: 0
+  &>p
+    color: #ccc
+    font-size: 14px
+    margin: 0
 
 figure
   img
@@ -107,6 +122,15 @@ body > .full-width
   &.full-width
     img
       width: 100%
+
+h2.twil
+  font-variant: small-caps
+  font-size: 16px
+  font-weight: normal
+  text-align: left
+  color: #999
+  span
+    float: right
 
 .pubdate
   text-align: right

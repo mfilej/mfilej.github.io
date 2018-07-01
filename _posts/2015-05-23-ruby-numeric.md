@@ -1,6 +1,6 @@
 ---
 title: Numeric types in Ruby
-layout: default
+layout: article
 category: article
 tags: ruby
 redirect_from: "/ruby-numeric/"
