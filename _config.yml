@@ -3,7 +3,7 @@ highlighter: rouge
 safe: false
 lsi: false
 exclude: [bin, CNAME, Gemfile, Gemfile.lock]
-permalink: /:categories/:title
+permalink: /:categories/:year/:title
 plugins:
   - jemoji
   - jekyll-redirect-from
