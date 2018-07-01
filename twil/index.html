@@ -1,12 +1,22 @@
 ---
+layout: default
 ---
 
-<!doctype html>
-<title>Miha Filej</title>
-<meta charset="utf-8">
+<p>
+  In June of 2018 I started an experiment — writing a development journal. I
+  have long been noticing that I often learn neat tricks, but never quite
+  incorporate them in my workflow, so they end up being forgotten. In an
+  attempt to better remember I started jotting these down in the journal. This
+  site is a collection of such notes, grouped by week.
+</p>
 
-<ul>
+<ul class="twil-archive">
   {% for post in site.categories.twil %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    {% for tag in post.tags %}
+      <span>{{ tag }}</span>
+    {% endfor %}
+  </li>
   {% endfor %}
 </ul>
