@@ -64,6 +64,13 @@
     width: .9em;
   }
 
+  .twil-link {
+    font-size: 0.7em;
+  }
+  .twil-link li {
+    line-height: 1em;
+  }
+
   @media (pointer:fine) {
     li:hover::before {
       content: "\2192 \0020";
@@ -91,6 +98,15 @@
     {% for post in site.tags.ios %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
+  </ul>
+  <ul class="twil-link">
+    <li>
+      <a href="/twil">
+        This week I learned &mdash;
+        <br>
+        <em>Excerpts from my development journal.</em>
+      </a>
+    </li>
   </ul>
 
   <h2>
