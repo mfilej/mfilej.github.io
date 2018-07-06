@@ -10,16 +10,17 @@ layout: default
 </article>
 
 <p>
-  In June of 2018, I started an experiment — writing a development journal. I
-  have long been noticing how I learn neat tricks, but never entirely
-  incorporate them into my workflow, so I end up forgetting them. To aid my
-  memory, I started jotting these down in the journal. This site is a
-  collection of such notes, grouped by week.
+  In June of 2018, I started an experiment &mdash; writing a development
+  journal &mdash; and this site is one of the byproducts. I have long been
+  noticing how I learn neat tricks, but never entirely incorporate them into
+  my workflow, so I end up forgetting them. To aid my memory, I started
+  jotting these down in the journal. This site is a collection of such notes,
+  grouped by week.
 </p>
 
 {% assign postsByYear = site.categories.twil | group_by_exp: "post", "post.date | date: '%Y'"  %}
 {% for year in postsByYear %}
-  <h2>{{ year.name }}</h2>
+  <h2 class="twil-year">{{ year.name }}</h2>
 
   <ul class="twil-archive">
     {% for post in year.items %}
