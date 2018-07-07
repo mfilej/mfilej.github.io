@@ -26,7 +26,7 @@ layout: default
     {% for post in year.items %}
     <li>
       <a class="title" href="{{ post.url }}">{{ post.title }}</a>
-      <p class="summary">{{ post.summary }}</p>
+      {{ post.summary | markdownify }}
       {% for tag in post.tags %}
         <span class="tag">{{ tag }}</span>
       {% endfor %}
