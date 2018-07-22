@@ -6,6 +6,8 @@ tags: ios
 redirect_from: "/store-original-modified-photo-pixelmator-ios"
 ---
 
+<script defer src="/js/rebox.js"></script>
+
 # {{ page.title }}
 
 This article is for you if: you use iCloud Photo Library to store your

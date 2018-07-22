@@ -6,42 +6,6 @@
 
 {{ content }}
 
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="/js/bigfoot.min.js"></script>
-<script src="/js/jquery-rebox.js"></script>
-<script>
-  $.bigfoot({
-    actionOriginalFN: "hide",
-    buttonMarkup: (
-      '<div class="bigfoot-footnote__container">' +
-        '<button href="#" class="bigfoot-footnote__button" rel="footnote"' +
-          'id="\{\{SUP:data-footnote-backlink-ref\}\}"' +
-          'data-footnote-number="\{\{FOOTNOTENUM\}\}"' +
-          'data-footnote-identifier="\{\{FOOTNOTEID\}\}"' +
-          'alt="See Footnote \{\{FOOTNOTENUM\}\}"' +
-          'data-bigfoot-footnote="\{\{FOOTNOTECONTENT\}\}">' +
-          '\{\{FOOTNOTENUM\}\}' +
-        '</button>' +
-      '</div>'
-    ),
-  });
-
-  $(".image-collection").rebox({
-    selector: "img",
-    captionAttr: "alt",
-    cycle: false,
-    template: "imageOnly",
-    templates: {
-      imageOnly: function(item, settings, callback) {
-        var src = item.attr("src"),
-          alt = item.attr("alt"),
-          klass = settings.theme + "-content"
-
-        return $("<img>", {src: src, alt: alt, class: klass}).load(callback);
-      }
-    }
-  });
-</script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(66481511); }catch(e){}</script>
 <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66481511ns.gif" /></p></noscript>
