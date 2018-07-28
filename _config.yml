@@ -7,5 +7,6 @@ permalink: /:categories/:year/:title
 plugins:
   - jemoji
   - jekyll-redirect-from
+  - jekyll-gist
 sass:
   sass_dir: _sass
