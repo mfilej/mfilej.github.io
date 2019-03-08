@@ -60,6 +60,9 @@ Your shell should now be ready with the specified ruby version.
     src="/assets{{ page.id }}/terminal.png">
 </figure>
 
+
+(See also: [Manage project dependencies with direnv]({% post_url 2019-03-03-manage-project-dependencies-with-direnv %}).)
+
 [direnv]: https://direnv.net
 [install]: https://github.com/direnv/direnv#install
 [setup]: https://github.com/direnv/direnv#setup
