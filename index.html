@@ -92,11 +92,10 @@
   </h2>
 
   <ul class="articles">
-    {% for post in site.tags.ruby %}
+    {% for post in site.posts %}
+    {% unless post.categories contains "twil" %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-    {% for post in site.tags.ios %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endunless %}
     {% endfor %}
   </ul>
   <ul class="twil-link">
