@@ -3,10 +3,12 @@ highlighter: rouge
 safe: false
 lsi: false
 exclude: [bin, CNAME, Gemfile, Gemfile.lock]
+url: "https://miha.filej.net"
 permalink: /:categories/:year/:title
 plugins:
   - jemoji
   - jekyll-redirect-from
   - jekyll-gist
+  - jekyll-seo-tag
 sass:
   sass_dir: _sass
