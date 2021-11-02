@@ -1,0 +1,72 @@
+<!doctype html>
+<title>Keep your state changes local</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/base.css">
+<meta name="viewport" content="width=700">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Keep your state changes local" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Keep your state changes local" />
+<meta property="og:description" content="Keep your state changes local" />
+<link rel="canonical" href="https://miha.filej.net/article/2019/keep-your-changes-local" />
+<meta property="og:url" content="https://miha.filej.net/article/2019/keep-your-changes-local" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-01T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Keep your state changes local" />
+<script type="application/ld+json">
+{"description":"Keep your state changes local","url":"https://miha.filej.net/article/2019/keep-your-changes-local","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://miha.filej.net/article/2019/keep-your-changes-local"},"headline":"Keep your state changes local","dateModified":"2019-03-01T00:00:00+00:00","datePublished":"2019-03-01T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<nav class="home-link">
+  <a href="/">&larr; Home</a>
+</nav>
+<p class="pubdate">
+  Published
+  <time datetime="2019-03-01T00:00:00+00:00">
+    2019-03-01
+  </time>
+</p>
+
+<h1 id="keep-your-state-changes-local">Keep your state changes local</h1>
+
+<p>Today I stumbled upon this code during a review:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">list</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">merge!</span><span class="p">(</span><span class="ss">sort: </span><span class="s2">"created_desc"</span><span class="p">)</span>
+    <span class="vi">@items</span> <span class="o">=</span> <span class="no">UsersSearch</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>I immediately urged the author to update the first line of the action to something like this instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span> <span class="o">=</span> <span class="n">params</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="ss">sort: </span><span class="s2">"created_desc"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>A programmer is very likely to go for the first implementation because its terseness makes it attractive and the second version is not very obvious (especially to a rubyist). I want to convince you to avoid the short version altogether. Given that the example code lives in a rails controller, the potential downsides might not be immediately apparent—after the value is passed to <code class="language-plaintext highlighter-rouge">search</code>, the execution ends.</p>
+
+<p>In an active codebase, it is only a matter of time before a line changes. Imagine that at some point we extract the <code class="language-plaintext highlighter-rouge">params</code> manipulation into a dedicated method and call it from various places. Now the manipulation is hidden from us, and it gets too easy to forget the mutating nature of the extracted method. Furthermore, we add functionality to the method, and now the execution doesn’t end there anymore. Soon after that, we end up scratching our heads when our <code class="language-plaintext highlighter-rouge">params</code> contain an unexpected value, and we have no idea where it came from.</p>
+
+<p>By using variable reassignment, we make sure that the change in value stays local to the method. Avoiding mutation is even more critical outside rails controllers, where the order of execution is less obvious and changes over time. There are times when we do need the change to be global. In those cases, we should be mindful of where we make the change. A constructor is usually the right place, but if that’s not possible consider a dedicated method with a descriptive name.</p>
+
+<h2 id="elixir-gets-it-right">Elixir gets it right</h2>
+
+<p>Elixir is a functional language, so it does not offer equivalents to <code class="language-plaintext highlighter-rouge">Hash#merge!</code> or <code class="language-plaintext highlighter-rouge">Hash#update</code>. However, we are allowed to write something akin to our reassignment example above:</p>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">params</span> <span class="o">=</span> <span class="no">Map</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="ss">:sort</span><span class="p">,</span> <span class="s2">"created_desc"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The above might look like mutating a value in a functional language, but that’s not the case—the variable is just re-bound to another value (<a href="http://blog.plataformatec.com.br/2016/01/comparing-elixir-and-erlang-variables/">read a detailed explanation</a>).</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Avoid mutating values when possible, and when you can’t avoid it, use variable reassignment to keep the changes local to the current method/function.</p>
+
+
+
+
+<script data-goatcounter="https://mfi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

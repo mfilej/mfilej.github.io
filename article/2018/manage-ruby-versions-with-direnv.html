@@ -1,0 +1,103 @@
+<!doctype html>
+<title>Manage ruby versions with direnv</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/base.css">
+<meta name="viewport" content="width=700">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Manage ruby versions with direnv" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Manage ruby versions with direnv" />
+<meta property="og:description" content="Manage ruby versions with direnv" />
+<link rel="canonical" href="https://miha.filej.net/article/2018/manage-ruby-versions-with-direnv" />
+<meta property="og:url" content="https://miha.filej.net/article/2018/manage-ruby-versions-with-direnv" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Manage ruby versions with direnv" />
+<script type="application/ld+json">
+{"description":"Manage ruby versions with direnv","url":"https://miha.filej.net/article/2018/manage-ruby-versions-with-direnv","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://miha.filej.net/article/2018/manage-ruby-versions-with-direnv"},"headline":"Manage ruby versions with direnv","dateModified":"2018-07-28T00:00:00+00:00","datePublished":"2018-07-28T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<nav class="home-link">
+  <a href="/">&larr; Home</a>
+</nav>
+<p class="pubdate">
+  Published
+  <time datetime="2018-07-28T00:00:00+00:00">
+    2018-07-28
+  </time>
+</p>
+
+<h1 id="manage-ruby-versions-with-direnv">Manage ruby versions with direnv</h1>
+
+<p>If you are not a ruby developer, a ruby version manager might be overkill if
+you only need it from time to time.</p>
+
+<p><a href="https://direnv.net">direnv</a> is a tool that manages your environment depending on the current
+directory<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. At first, I started using it to manage environment variables
+for specific projects. After that, it replaced version managers for languages
+I use less often, like python and javascript (node). Once my projects had
+everything neatly configured in <code class="language-plaintext highlighter-rouge">.envrc</code> files, it made sense to include the
+ruby version as well.</p>
+
+<h2 id="how">How?</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install direnv
+</code></pre></div></div>
+
+<p>First, <a href="https://github.com/direnv/direnv#install">install</a> direnv and <a href="https://github.com/direnv/direnv#setup">configure</a> your shell to use it.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install chruby
+</code></pre></div></div>
+
+<p>Then install chruby<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>, but <em>do not</em> configure your shell to source it.
+Instead, we will do this via direnv. Edit <code class="language-plaintext highlighter-rouge">~/.direnvrc</code> and append the
+following:</p>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/4f3467acaff8c8a86407d4f1e7ea9e54.js"> </script>
+
+<p>If your ruby versions are not in <code class="language-plaintext highlighter-rouge">~/.rubies</code>, uncomment the <code class="language-plaintext highlighter-rouge">RUBIES</code> line and
+set the value appropriately.</p>
+
+<p>Relaunch your shell, navigate to your project, run <code class="language-plaintext highlighter-rouge">direnv edit .</code>, and add
+the following (assuming you have 2.5.1 installed):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>use ruby 2.5.1
+</code></pre></div></div>
+
+<p>Your shell should now be ready with the specified ruby version.</p>
+
+<style>
+  .terminal-screenshot {
+  }
+  .terminal-screenshot img {
+    margin-left: -55px;
+    max-width: 782px;
+    width: 100%;
+    overflow: hidden;
+  }
+</style>
+
+<figure class="terminal-screenshot">
+  <img alt="Fish shell with direnv and ruby 2.5.1." src="/assets/article/2018/manage-ruby-versions-with-direnv/terminal.png" />
+</figure>
+
+<p>(See also: <a href="/article/2019/manage-project-dependencies-with-direnv">Manage project dependencies with direnv</a>.)</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><code class="language-plaintext highlighter-rouge">dir</code> + <code class="language-plaintext highlighter-rouge">env</code>. Get it?. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Other managers would probably work as well, or even some custom scripting, but chruby is a simple project and it lends well to this purpose. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+
+<script data-goatcounter="https://mfi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

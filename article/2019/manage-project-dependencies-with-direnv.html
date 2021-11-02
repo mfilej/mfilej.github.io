@@ -1,0 +1,122 @@
+<!doctype html>
+<title>Manage project dependencies with direnv</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/base.css">
+<meta name="viewport" content="width=700">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Manage project dependencies with direnv" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Manage project dependencies with direnv" />
+<meta property="og:description" content="Manage project dependencies with direnv" />
+<link rel="canonical" href="https://miha.filej.net/article/2019/manage-project-dependencies-with-direnv" />
+<meta property="og:url" content="https://miha.filej.net/article/2019/manage-project-dependencies-with-direnv" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-03T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Manage project dependencies with direnv" />
+<script type="application/ld+json">
+{"description":"Manage project dependencies with direnv","url":"https://miha.filej.net/article/2019/manage-project-dependencies-with-direnv","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://miha.filej.net/article/2019/manage-project-dependencies-with-direnv"},"headline":"Manage project dependencies with direnv","dateModified":"2019-03-03T00:00:00+00:00","datePublished":"2019-03-03T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<nav class="home-link">
+  <a href="/">&larr; Home</a>
+</nav>
+<p class="pubdate">
+  Published
+  <time datetime="2019-03-03T00:00:00+00:00">
+    2019-03-03
+  </time>
+</p>
+
+<h1 id="manage-project-dependencies-with-direnv">Manage project dependencies with direnv</h1>
+
+<p>This quick how-to will demonstrate how to use <a href="https://direnv.net">direnv</a> to manage your
+project’s dependencies. The first part will explain the rationale for using
+direnv for this purpose, but feel free to skip ahead to the examples.</p>
+
+<p>Most developers are familiar with the situation where one starts to work on a
+project that requires a different version of a dependency than the one already
+installed on the local computer.</p>
+
+<p>It might be a project that requires an ancient version of node when you have
+the latest installed, or it might be a requirement to use PostgreSQL 9.5 when
+you have 9.6 installed.</p>
+
+<p>If you are a <code class="language-plaintext highlighter-rouge">lang</code> developer, you probably have a <code class="language-plaintext highlighter-rouge">lang</code> version manager
+installed. But unless you’re a javascript developer, a javascript version
+manager is probably overkill for you.</p>
+
+<p>Direnv, among its many other superpowers, allows you to configure your
+project’s dependencies in a matter of seconds. Keep in mind that direnv does
+not take care of installing dependencies, but this is actually a good thing!
+Direnv doesn’t mind how you install your binaries, so you can pick anything
+you like. For the upcoming examples we’ll assume <a href="https://brew.sh">homebrew</a>.</p>
+
+<p>The approach we’ll use is to install our binaries outside of the usual
+<code class="language-plaintext highlighter-rouge">$PATH</code>, so anything outside our project will not have direct access to them.
+To achieve this with homebrew, we have to unlink the formula after installing
+(<code class="language-plaintext highlighter-rouge">brew unlink &lt;formula&gt;</code>), but this is not needed when installing a specific
+version of a formula, like in the following example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd some-project
+$ psql --version
+psql (PostgreSQL) 9.6.10
+$ brew install postgresql@9.5
+$ brew --prefix postgresql@9.5
+/usr/local/opt/postgresql@9.5
+</code></pre></div></div>
+
+<p>Copy the last line of the output because you will need it in the next step.</p>
+
+<p>Once the binaries are installed we can proceed by telling direnv to add the
+binaries we just installed to the <code class="language-plaintext highlighter-rouge">$PATH</code>, but only when we are inside our
+project’s directory. This is done by editing <code class="language-plaintext highlighter-rouge">.envrc</code> in the root of our
+project:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ direnv edit .
+</code></pre></div></div>
+
+<p><img alt="Screenshot of .envrc being edited in a vim buffer with the following content: PATH_add /usr/local/opt/postgresql@9.5/bin" src="/assets/article/2019/manage-project-dependencies-with-direnv/direnv-edit.png" width="640" /></p>
+
+<p>Once we save the file, direnv will update our environment variables:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>direnv: loading .envrc
+direnv: ~PATH
+</code></pre></div></div>
+
+<p>The correct version of <code class="language-plaintext highlighter-rouge">psql</code> is now in our <code class="language-plaintext highlighter-rouge">$PATH</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ psql --version
+psql (PostgreSQL) 9.5.14
+</code></pre></div></div>
+
+<p>And that’s it!</p>
+
+<h2 id="bonus-tip">Bonus tip</h2>
+
+<p>Here is part of an <code class="language-plaintext highlighter-rouge">.envrc</code> file that I use in one of my
+projects:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATH_add /usr/local/opt/postgresql@9.5/bin
+PATH_add /usr/local/opt/mongodb@3.4/bin/
+PATH_add /usr/local/opt/elasticsearch@5.6/bin
+PATH_add /usr/local/opt/node@8/bin
+PATH_add ./node_modules/yarn/bin/
+</code></pre></div></div>
+
+<p>Here’s the bonus tip: the last line allows me to use a version of yarn that was installed through
+npm.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Direnv is a swiss army knife for me when it comes to working in the
+terminal. I hope to see more developers taking advantage of its superpowers!</p>
+
+<p>(See also: <a href="/article/2018/manage-ruby-versions-with-direnv">Manage ruby versions with direnv</a>.)</p>
+
+
+
+
+<script data-goatcounter="https://mfi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

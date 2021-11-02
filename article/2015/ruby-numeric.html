@@ -1,0 +1,229 @@
+
+<title>Numeric types in Ruby</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/base.css">
+<meta name="viewport" content="width=700">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.2.1">
+<meta property="og:title" content="Numeric types in Ruby">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://miha.filej.net/article/2015/ruby-numeric">
+<meta property="og:url" content="https://miha.filej.net/article/2015/ruby-numeric">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-05-23T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Numeric types in Ruby">
+<script type="application/ld+json">
+{"url":"https://miha.filej.net/article/2015/ruby-numeric","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://miha.filej.net/article/2015/ruby-numeric"},"headline":"Numeric types in Ruby","dateModified":"2015-05-23T00:00:00+00:00","datePublished":"2015-05-23T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<nav class="home-link">
+  <a href="/">← Home</a>
+</nav>
+<p class="pubdate">
+  Published
+  <time datetime="2015-05-23T00:00:00+00:00">
+    2015-05-23
+  </time>
+</p>
+
+<link rel="stylesheet" href="/assets/ruby-numeric.css">
+
+<h1 id="numeric-types-in-ruby">Numeric types in Ruby</h1>
+
+<p>Ruby uses a handful of classes to represent numbers. I had trouble remembering
+the exact class hierarchy<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, so I opened up <code class="language-plaintext highlighter-rouge">irb</code> to inspect the ancestors
+of each class. The hierarchy turned out to be simpler than I expected and
+actually not that hard to remember once laid out:</p>
+
+<ul class="ruby-numeric-class-hierarchy">
+  <li>
+    <code>BasicObject</code>
+    <ul>
+      <li>
+        <code>Object</code>
+        <ul>
+          <li>
+            <code>Numeric</code>
+            <ul>
+              <li>
+                <code>Float</code>
+              </li>
+              <li>
+                <code>Rational</code>
+              </li>
+              <li>
+                <code>Complex</code>
+              </li>
+              <li>
+                <code>BigDecimal</code>
+              </li>
+              <li>
+                <code>Integer</code>
+                <ul>
+                  <li class="ruby-numeric-deprecated-class">
+                    <code>Fixnum</code>
+                  </li>
+                  <li class="ruby-numeric-deprecated-class">
+                    <code>Bignum</code>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong>Update</strong>: <code class="language-plaintext highlighter-rouge">Fixnum</code> and <code class="language-plaintext highlighter-rouge">Bignum</code> have been unified into <code class="language-plaintext highlighter-rouge">Integer</code> in Ruby 2.4 and
+are planned to be deprecated in the future. See <a href="https://bugs.ruby-lang.org/issues/12005">Unify Fixnum and Bignum into
+Integer</a>.</p>
+
+<p>Everything starts with the <a href="http://ruby-doc.org/core-2.2.2/Numeric.html"><code class="language-plaintext highlighter-rouge">Numeric</code></a> superclass, which
+also includes the <a href="http://ruby-doc.org/core-2.2.2/Comparable.html"><code class="language-plaintext highlighter-rouge">Comparable</code></a> module.</p>
+
+<p>There are four basic types: <code class="language-plaintext highlighter-rouge">Integer</code>, <code class="language-plaintext highlighter-rouge">Float</code>, <code class="language-plaintext highlighter-rouge">Rational</code>, and <code class="language-plaintext highlighter-rouge">Complex</code>.
+Each can be constructed in at least the following ways: with literals,
+conversion methods  defined on <code class="language-plaintext highlighter-rouge">Object</code> and <a href="http://devblog.avdi.org/2012/05/07/a-ruby-conversion-idiom/">capitalized conversion
+methods</a> defined on <code class="language-plaintext highlighter-rouge">Kernel</code>.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Floating_point">Floating point</a> representation is only an approximation of <a href="https://en.wikipedia.org/wiki/Real_number">real
+numbers</a>. In order to represent very large or very accurate
+floating point numbers in Ruby, we have to resort to <code class="language-plaintext highlighter-rouge">BigDecimal</code>.<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">2</a></sup> From
+<a href="http://ruby-doc.org/stdlib-2.2.2/libdoc/bigdecimal/rdoc/BigDecimal.html">the documentation</a>:</p>
+
+<blockquote>
+  <p>Decimal arithmetic is also useful for general calculation, because it
+provides the correct answers people expect–whereas normal binary floating
+point arithmetic often introduces subtle errors because of the conversion
+between base 10 and base 2.</p>
+</blockquote>
+
+<table class="ruby-numeric-types-table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Literal</th>
+      <th>Object#</th>
+      <th>Kernel#</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Integer</td>
+      <td><code class="language-plaintext highlighter-rouge">73</code></td>
+      <td><code class="language-plaintext highlighter-rouge">to_i</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Integer()</code></td>
+    </tr>
+    <tr>
+      <td>Rational</td>
+      <td><code class="language-plaintext highlighter-rouge">1/3r</code></td>
+      <td><code class="language-plaintext highlighter-rouge">to_r</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Rational()</code></td>
+    </tr>
+    <tr>
+      <td>Complex</td>
+      <td><code class="language-plaintext highlighter-rouge">2i</code></td>
+      <td><code class="language-plaintext highlighter-rouge">to_c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Complex()</code></td>
+    </tr>
+    <tr>
+      <td>Float</td>
+      <td><code class="language-plaintext highlighter-rouge">1.1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">to_f</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Float()</code></td>
+    </tr>
+    <tr>
+      <td><a href="http://ruby-doc.org/stdlib-2.2.2/libdoc/bigdecimal/rdoc/BigDecimal.html">BigDecimal</a></td>
+      <td>—</td>
+      <td>—</td>
+      <td>
+<code class="language-plaintext highlighter-rouge">BigDecimal()</code><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">3</a></sup>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="what-about-fixnum-and-bignum">What about <code class="language-plaintext highlighter-rouge">Fixnum</code> and <code class="language-plaintext highlighter-rouge">Bignum</code>?</h2>
+
+<p><img class="emoji" title=":warning:" alt=":warning:" src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png" height="20" width="20"> <strong>Update</strong>: This chapter only applies to Ruby versions before 2.4.
+(<a href="https://bugs.ruby-lang.org/issues/12005">#12005</a>)</p>
+
+<p>Ruby uses instances of these two classes to represent integers. The
+interesting part is that we never actually create <code class="language-plaintext highlighter-rouge">Integer</code> instances:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&gt;&gt;</span> <span class="no">Integer</span><span class="p">(</span><span class="s2">"1"</span><span class="p">).</span><span class="nf">class</span>
+<span class="o">=&gt;</span> <span class="no">Fixnum</span>
+<span class="o">&gt;&gt;</span> <span class="s2">"1"</span><span class="p">.</span><span class="nf">to_i</span><span class="p">.</span><span class="nf">class</span>
+<span class="o">=&gt;</span> <span class="no">Fixnum</span></code></pre></figure>
+
+<p>Behind the scenes, Ruby juggles between <code class="language-plaintext highlighter-rouge">Fixnum</code> and <code class="language-plaintext highlighter-rouge">Bignum</code>, depending on
+the size of the number we want to reference.</p>
+
+<p>You can verify this in irb:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&gt;&gt;</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">62</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="o">=&gt;</span> <span class="mi">4611686018427387903</span>
+<span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">.</span><span class="nf">class</span>
+<span class="o">=&gt;</span> <span class="no">Fixnum</span>
+<span class="o">&gt;&gt;</span> <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">=&gt;</span> <span class="mi">4611686018427387904</span>
+<span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">.</span><span class="nf">class</span>
+<span class="o">=&gt;</span> <span class="no">Bignum</span>
+<span class="o">&gt;&gt;</span> <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="o">=&gt;</span> <span class="mi">4611686018427387903</span>
+<span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">.</span><span class="nf">class</span>
+<span class="o">=&gt;</span> <span class="no">Fixnum</span></code></pre></figure>
+
+<p>The automatic conversion is also mentioned in the <a href="http://ruby-doc.org/core-2.2.2/Fixnum.html">documentation for <code class="language-plaintext highlighter-rouge">Fixnum</code></a>:</p>
+
+<blockquote>
+  <p>[Fixnum] holds Integer values that can be represented in a native machine word (minus 1 bit). If any operation on a Fixnum exceeds this range, the value is automatically converted to a Bignum.
+Fixnum objects have immediate value. This means that when they are assigned or passed as parameters, the actual object is passed, rather than a reference to that object.
+Assignment does not alias Fixnum objects. There is effectively only one Fixnum object instance for any given integer value, so, for example, you cannot add a singleton method to a Fixnum. Any attempt to add a singleton method to a Fixnum object will raise a TypeError.</p>
+</blockquote>
+
+<p>Unsurprisingly, <a href="http://ruby-doc.org/core-2.2.2/Bignum.html">the documentation for <code class="language-plaintext highlighter-rouge">Bignum</code></a> is similar:</p>
+
+<blockquote>
+  <p>Bignum objects hold integers outside the range of Fixnum. Bignum objects are created automatically when integer calculations would otherwise overflow a Fixnum. When a calculation involving Bignum objects returns a result that will fit in a Fixnum, the result is automatically converted.
+For the purposes of the bitwise operations and [], a Bignum is treated as if it were an infinite-length bitstring with 2’s complement representation.
+While Fixnum values are immediate, Bignum objects are not—assignment and parameter passing work with references to objects, not the objects themselves.</p>
+</blockquote>
+
+<p>Wait, what was that last bit? <code class="language-plaintext highlighter-rouge">Fixnum</code> and <code class="language-plaintext highlighter-rouge">Bignum</code> seem to behave differently when it comes to memory allocation. Let’s try to confirm this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&gt;&gt;</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">63</span>
+<span class="o">=&gt;</span> <span class="mi">9223372036854775808</span>
+<span class="o">&gt;&gt;</span> <span class="n">num1</span><span class="p">.</span><span class="nf">class</span>
+<span class="o">=&gt;</span> <span class="no">Bignum</span>
+<span class="o">&gt;&gt;</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">63</span>
+<span class="o">=&gt;</span> <span class="mi">9223372036854775808</span>
+<span class="o">&gt;&gt;</span> <span class="n">num1</span><span class="p">.</span><span class="nf">object_id</span> <span class="o">==</span> <span class="n">num2</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="kp">false</span></code></pre></figure>
+
+<p>The object ids differ, showing that the two variables point to different objects. Fixnum instances show the opposite behaviour:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">.</span><span class="nf">object_id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">.</span><span class="nf">object_id</span>
+<span class="o">=&gt;</span> <span class="kp">true</span></code></pre></figure>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>I was relieved to find out that I wasn’t <a href="https://bugs.ruby-lang.org/issues/11151">alone</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Don’t forget to <code class="language-plaintext highlighter-rouge">require "bigdecimal"</code>. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><code class="language-plaintext highlighter-rouge">BigDecimal</code> is the only numeric class in Ruby that can be instantiated with a constructor method, e.g.: <code class="language-plaintext highlighter-rouge">BigDecimal.new("1.2")</code> — note that the argument is passed as a string to work around the imprecise nature of floats. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+
+
+<script data-goatcounter="https://mfi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

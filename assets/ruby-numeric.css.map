@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "ruby-numeric.css",
+	"sources": [
+		"ruby-numeric.sass"
+	],
+	"sourcesContent": [
+		".ruby-numeric-types-table {\n  th, td {}\n  th {\n    background: #efefef; } }\n\n.ruby-numeric-class-hierarchy {\n  margin-top: 0;\n  padding: 0 4rem 2rem;\n\n  > li {\n    padding-top: 0 !important; }\n\n  ul {\n    padding-left: 3rem; }\n\n  li {\n    position: relative;\n    display: block;\n    padding-top: 1rem;\n\n    &:before {\n      position: absolute;\n      top: -3rem;\n      left: -2rem;\n      width: 2rem;\n      height: 5rem;\n      content: \"\\200B\";\n      border-bottom-left-radius: 9px;\n      border: 1px solid #aaa;\n      border-width: 0px 0px 1px 1px; } }\n  & > li:before {\n    border-bottom: none; }\n\n  li:first-child:before {\n    top: 0;\n    height: 2rem; }\n\n  & > li:first-child:before {\n    border: none; }\n\n  code {\n    display: block;\n    padding: 0 0.6rem;\n    border: 1px solid #aaa;\n    border-radius: 3px;\n    width: 6rem;\n    height: 2rem;\n    line-height: 2rem;\n    font-size: 14px;\n    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15); } }\n\n.ruby-numeric-deprecated-class {\n  code {\n    background: #e1d5d5; } }\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AAEE,yBAFuB,CAEvB,EAAE,CAAC,EACD,UAAU,EAAE,OAAO,GAAG;;AAE1B,AAAA,6BAA6B,CAAC,EAC5B,UAAU,EAAE,CAAC,EACb,OAAO,EAAE,WAAW,GA0C4B;;AA5ClD,AAIE,6BAJ2B,GAIzB,EAAE,CAAC,EACH,WAAW,EAAE,YAAY,GAAG;;AALhC,AAOE,6BAP2B,CAO3B,EAAE,CAAC,EACD,YAAY,EAAE,IAAI,GAAG;;AARzB,AAUE,6BAV2B,CAU3B,EAAE,CAAC,EACD,QAAQ,EAAE,QAAQ,EAClB,OAAO,EAAE,KAAK,EACd,WAAW,EAAE,IAAI,GAWmB;;AAxBxC,AAeI,6BAfyB,CAU3B,EAAE,CAKE,MAAM,CAAC,EACP,QAAQ,EAAE,QAAQ,EAClB,GAAG,EAAE,KAAK,EACV,IAAI,EAAE,KAAK,EACX,KAAK,EAAE,IAAI,EACX,MAAM,EAAE,IAAI,EACZ,OAAO,EAAE,OAAO,EAChB,yBAAyB,EAAE,GAAG,EAC9B,MAAM,EAAE,cAAc,EACtB,YAAY,EAAE,eAAe,GAAG;;AAxBtC,AAyBE,6BAzB2B,GAyBvB,EAAE,CAAC,MAAM,CAAC,EACZ,aAAa,EAAE,IAAI,GAAG;;AA1B1B,AA4BE,6BA5B2B,CA4B3B,EAAE,CAAC,WAAW,CAAC,MAAM,CAAC,EACpB,GAAG,EAAE,CAAC,EACN,MAAM,EAAE,IAAI,GAAG;;AA9BnB,AAgCE,6BAhC2B,GAgCvB,EAAE,CAAC,WAAW,CAAC,MAAM,CAAC,EACxB,MAAM,EAAE,IAAI,GAAG;;AAjCnB,AAmCE,6BAnC2B,CAmC3B,IAAI,CAAC,EACH,OAAO,EAAE,KAAK,EACd,OAAO,EAAE,QAAQ,EACjB,MAAM,EAAE,cAAc,EACtB,aAAa,EAAE,GAAG,EAClB,KAAK,EAAE,IAAI,EACX,MAAM,EAAE,IAAI,EACZ,WAAW,EAAE,IAAI,EACjB,SAAS,EAAE,IAAI,EACf,UAAU,EAAE,GAAG,CAAC,GAAG,CAAC,CAAC,CAAC,mBAAmB,GAAG;;AAEhD,AACE,8BAD4B,CAC5B,IAAI,CAAC,EACH,UAAU,EAAE,OAAO,GAAG"
+}
