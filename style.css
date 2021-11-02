@@ -1,0 +1,23 @@
+---
+---
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.link {
+  @apply underline text-pink-500;
+  text-decoration-color: theme("colors.pink.200");
+  text-underline-offset: .1em;
+  text-decoration-thickness: .125em;
+}
+.link:hover {
+  @apply text-pink-700;
+  text-decoration-color: theme("colors.pink.300");
+}
+
+.button {
+  @apply inline-block px-2 py-1 border-2 border-indigo-200 rounded text-indigo-400 text-center;
+}
+.button:hover {
+  @apply border-indigo-300 text-indigo-500;
+}
