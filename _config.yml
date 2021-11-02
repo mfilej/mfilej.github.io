@@ -2,7 +2,7 @@ markdown: kramdown
 highlighter: rouge
 safe: false
 lsi: false
-exclude: [bin, CNAME, Gemfile, Gemfile.lock, package.json, yarn.lock,
+exclude: [bin, Gemfile, Gemfile.lock, package.json, yarn.lock,
   postcss.config.js, tailwind.config.js, redirects.json, node_modules]
 url: "https://miha.filej.net"
 permalink: /:categories/:year/:title
