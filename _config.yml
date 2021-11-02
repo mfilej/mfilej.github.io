@@ -7,10 +7,10 @@ exclude: [bin, CNAME, Gemfile, Gemfile.lock, package.json, yarn.lock,
 url: "https://miha.filej.net"
 permalink: /:categories/:year/:title
 plugins:
-  - jemoji
-  - jekyll-redirect-from
   - jekyll-gist
-  - jekyll-seo-tag
   - jekyll-postcss-v2
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jemoji
 sass:
   sass_dir: _sass
