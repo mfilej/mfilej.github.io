@@ -4,6 +4,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+ins {
+  text-decoration-line: none;
+  font-style: italic;
+}
+
 .link {
   @apply underline text-pink-500;
   text-decoration-color: theme("colors.pink.200");

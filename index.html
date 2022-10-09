@@ -11,16 +11,17 @@
 <body class="m-auto p-8 max-w-6xl text-gray-500 md:px-16">
   <div class="pb-4 grid grid-flow-col grid-cols-6 gap-12 sm:pt-4">
     <header class="min-w-min col-span-full sm:col-span-2 sm:row-span-1 mb-4">
-      <img class="m-auto rounded-full object-scale-down"
-           alt="Profile picture"
-           srcset="avatar15-150w.jpg, avatar15-300w.jpg 2x, avatar15-600w.jpg 4x"
-           src="avatar15-300w.jpg">
+      <img class="m-auto rounded-full object-scale-down" alt="Profile picture"
+        srcset="avatar15-150w.jpg, avatar15-300w.jpg 2x, avatar15-600w.jpg 4x" src="avatar15-300w.jpg">
 
       <h1 class="text-4xl text-gray-700 text-center my-6">Miha Filej</h1>
 
       <div class="flex flex-wrap justify-center gap-y-1 gap-x-4">
-        <a class="w-32 button" href="mailto:miha@filej.net">contact me</a>
-        <a class="w-32 button" href="/cv">hire me</a>
+        <a class="group relative w-32 button" href="mailto:miha@filej.net">contact me
+          <span class="absolute -bottom-4 -right-12 px-2 py-0.5 transform -rotate-6 text-xs uppercase bg-indigo-600 text-indigo-200 rounded
+                    group-hover:bg-indigo-500 group-hover:text-white">Available
+            for hire</span>
+        </a>
       </div>
     </header>
 
@@ -43,14 +44,14 @@
       </ul>
 
       <p class="mt-6">
-        If you are interested in my software career, check out my
-        <a class="link" href="/cv">rarely-updated résumé</a>
-        (no, really, it's probably way out of date).
+        If you are interested in my career as a software engineer, check out my
+        <del>rarely</del> <ins>freshly</ins> updated
+        <a class="link" href="http://cdn.filej.net/resume.pdf">résumé (PDF)</a>.
       </p>
 
       <p class="mt-6">
-        If, for some weird reason, you would like to know more about my personal
-        life, you are welcome to listen to
+        If, for some peculiar reason, you would like to know more about my
+        personal life, you are welcome to listen to
         <a class="link" href="https://www.parallelpassion.com/29">
           episode #29 of Parallel Passion</a>,
         where Miha Rekar was kind enough to interview me about everything
@@ -67,7 +68,7 @@
         Nothing says December holidays like
         <a class="link" href="https://adventofcode.com">Advent of Code</a>,
         and I participate most years. In 2017 I decided to record myself
-        solving the puzzles. I managed to publish videos for days 
+        solving the puzzles. I managed to publish videos for days
         <a class="link" href="https://vimeo.com/245529436">2</a>
         and&nbsp;<a class="link" href="https://vimeo.com/246615302">9</a>.
       </p>
@@ -98,18 +99,14 @@
                   lg:col-start-6 lg:pt-8 lg:border-none">
       <h2 class="absolute -top-3.5 w-24 left-1/2 -ml-12
                  text-gray-500 font-semibold text-center bg-white
-                 lg:static lg:w-auto lg:ml-0 lg:text-2xl lg:font-medium lg:mb-4"
-        >Elsewhere</h2>
+                 lg:static lg:w-auto lg:ml-0 lg:text-2xl lg:font-medium lg:mb-4">Elsewhere</h2>
 
       <ul class="flex flex-wrap gap-3 justify-center">
         {% for li in site.data.social %}
         <li class="">
-          <a
-            class="px-3 py-1 border-2 rounded text-sm 
+          <a class="px-3 py-1 border-2 rounded text-sm 
                    font-medium text-gray-500 border-gray-200
-                   hover:text-pink-600 hover:border-pink-300"
-            href="{{ li.link }}"
-            rel="me">{{ li.name }}</a>
+                   hover:text-pink-600 hover:border-pink-300" href="{{ li.link }}" rel="me">{{ li.name }}</a>
         </li>
         {% endfor %}
       </ul>
@@ -117,6 +114,8 @@
   </div>
 
   <script src="//static.getclicky.com/js" type="text/javascript"></script>
-  <script type="text/javascript">try{ clicky.init(66481511); }catch(e){}</script>
-  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66481511ns.gif" /></p></noscript>
+  <script type="text/javascript">try {clicky.init(66481511);} catch (e) { }</script>
+  <noscript>
+    <p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66481511ns.gif" /></p>
+  </noscript>
 </body>
