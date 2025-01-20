@@ -3,7 +3,7 @@
 
 <!doctype html>
 <title>Miha Filej</title>
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="stylesheet" href="style.css" />
 <style></style>
@@ -11,92 +11,106 @@
 <body class="m-auto p-8 max-w-6xl text-gray-500 md:px-16">
   <div class="pb-4 grid grid-flow-col grid-cols-6 gap-12 sm:pt-4">
     <header class="min-w-min col-span-full sm:col-span-2 sm:row-span-1 mb-4">
-      <img class="m-auto rounded-full object-scale-down" alt="Profile picture"
-        srcset="avatar15-150w.jpg, avatar15-300w.jpg 2x, avatar15-600w.jpg 4x" src="avatar15-300w.jpg">
+      <img
+        class="m-auto rounded-full object-scale-down"
+        alt="Profile picture"
+        srcset="avatar15-150w.jpg, avatar15-300w.jpg 2x, avatar15-600w.jpg 4x"
+        src="avatar15-300w.jpg"
+      />
 
       <h1 class="text-4xl text-gray-700 text-center my-6">Miha Filej</h1>
 
       <div class="flex flex-wrap justify-center gap-y-1 gap-x-4">
-        <a class="group relative w-32 button" href="mailto:miha@filej.net">contact me</a>
+        <a class="group relative w-32 button" href="mailto:miha@filej.net"
+          >contact me</a
+        >
       </div>
     </header>
 
-    <section class="pt-8 col-span-full
-                    sm:row-start-1 sm:col-start-3 sm:col-span-4 sm:row-span-2
-                    lg:col-span-3">
-      <h2 class="text-2xl text-gray-600 font-medium mb-4">
-        Articles
-      </h2>
+    <section
+      class="pt-8 col-span-full sm:row-start-1 sm:col-start-3 sm:col-span-4 sm:row-span-2 lg:col-span-3"
+    >
+      <h2 class="text-3xl text-gray-600 font-medium mb-4">Articles</h2>
 
       <ul>
-        {% for post in site.posts %}
-        {% unless post.categories contains "twil" %}
+        {% for post in site.posts %} {% unless post.categories contains "twil"
+        %}
         <li class="group relative mb-1.5">
-          <span class="absolute -left-4 leading-7 text-sm text-pink-200 group-hover:-left-5">&rarr;</span>
+          <span
+            class="absolute -left-4 leading-7 text-sm text-pink-200 group-hover:-left-5"
+            >&rarr;</span
+          >
           <a class="link" href="{{ post.url }}">{{ post.title }}</a>
         </li>
-        {% endunless %}
-        {% endfor %}
+        {% endunless %} {% endfor %}
       </ul>
 
       <p class="mt-6">
         If, for some peculiar reason, you would like to know more about my
         personal life, you are welcome to listen to
         <a class="link" href="https://www.parallelpassion.com/29">
-          episode #29 of Parallel Passion</a>,
-        where Miha Rekar was kind enough to interview me about everything
+          episode #29 of Parallel Passion</a
+        >, where Miha Rekar was kind enough to interview me about everything
         unrelated to work.
       </p>
 
       <p class="mt-6">
         In 2018 I experimented with writing a
-        <a class="link" href="/twil">development journal</a>.
-        I'm keeping it as an artifact of history.
+        <a class="link" href="/twil">development journal</a>. I'm keeping it as
+        an artifact of history.
       </p>
 
       <p class="mt-6">
         Nothing says December holidays like
-        <a class="link" href="https://adventofcode.com">Advent of Code</a>,
-        and I participate most years. In 2017 I decided to record myself
-        solving the puzzles. I managed to publish videos for days
+        <a class="link" href="https://adventofcode.com">Advent of Code</a>, and
+        I participate most years. In 2017 I decided to record myself solving the
+        puzzles. I managed to publish videos for days
         <a class="link" href="https://vimeo.com/245529436">2</a>
         and&nbsp;<a class="link" href="https://vimeo.com/246615302">9</a>.
       </p>
-
 
       <p class="mt-6">
         I was fortunate to get invited to mentor at two
         <a class="link" href="http://railsgirls.com">Rails Girls</a>
         events;
-        <a class="link" href="http://railsgirls.com/amsterdam2012.html">Amsterdam 2012</a>
+        <a class="link" href="http://railsgirls.com/amsterdam2012.html"
+          >Amsterdam 2012</a
+        >
         and
-        <a class="link" href="http://railsgirls.com/ljubljana">Ljubljana 2014</a>.
+        <a class="link" href="http://railsgirls.com/ljubljana">Ljubljana 2014</a
+        >.
       </p>
 
       <p class="mt-6">
         In
         <a class="link" href="http://coderetreat.si/2012">2012</a>
         and
-        <a class="link" href="http://coderetreat.si">2013</a>,
-        I organized coderetreat events in Slovenia, both
-        part of the
-        <a class="link" href="https://www.coderetreat.org/?seed=4561">Global Day of Coderetreat</a>.
+        <a class="link" href="http://coderetreat.si">2013</a>, I organized
+        coderetreat events in Slovenia, both part of the
+        <a class="link" href="https://www.coderetreat.org/?seed=4561"
+          >Global Day of Coderetreat</a
+        >.
       </p>
     </section>
 
-    <aside class="relative col-span-full my-16 pt-8 border-t-2 border-gray-100
-                  sm:my-0 sm:col-span-2 sm:row-span-1
-                  lg:col-start-6 lg:pt-8 lg:border-none">
-      <h2 class="absolute -top-3.5 w-24 left-1/2 -ml-12
-                 text-gray-500 font-semibold text-center bg-white
-                 lg:static lg:w-auto lg:ml-0 lg:text-2xl lg:font-medium lg:mb-4">Elsewhere</h2>
+    <aside
+      class="relative col-span-full my-16 pt-8 border-t-2 border-gray-100 sm:my-0 sm:col-span-2 sm:row-span-1 lg:col-start-6 lg:pt-8 lg:border-none"
+    >
+      <h2
+        class="absolute -top-3.5 w-24 left-1/2 -ml-12 text-gray-500 font-semibold text-center bg-white lg:static lg:w-auto lg:ml-0 lg:text-2xl lg:font-medium lg:mb-4"
+      >
+        Elsewhere
+      </h2>
 
       <ul class="flex flex-wrap gap-3 justify-center">
         {% for li in site.data.social %}
         <li class="">
-          <a class="px-3 py-1 border-2 rounded text-sm 
-                   font-medium text-gray-500 border-gray-200
-                   hover:text-pink-600 hover:border-pink-300" href="{{ li.link }}" rel="me">{{ li.name }}</a>
+          <a
+            class="px-3 py-1 border-2 rounded text-sm font-medium text-gray-500 border-gray-200 hover:text-pink-600 hover:border-pink-300"
+            href="{{ li.link }}"
+            rel="me"
+            >{{ li.name }}</a
+          >
         </li>
         {% endfor %}
       </ul>
@@ -104,8 +118,19 @@
   </div>
 
   <script src="//static.getclicky.com/js" type="text/javascript"></script>
-  <script type="text/javascript">try {clicky.init(66481511);} catch (e) { }</script>
+  <script type="text/javascript">
+    try {
+      clicky.init(66481511);
+    } catch (e) {}
+  </script>
   <noscript>
-    <p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66481511ns.gif" /></p>
+    <p>
+      <img
+        alt="Clicky"
+        width="1"
+        height="1"
+        src="//in.getclicky.com/66481511ns.gif"
+      />
+    </p>
   </noscript>
 </body>
