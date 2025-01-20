@@ -1,2 +1,23 @@
+[env]
+_.path = "bin"
+
 [tools]
+pnpm = "latest"
 ruby = "3.4"
+
+[tasks."setup:bundler"]
+run = "bundle install"
+
+[tasks."setup:pnpm"]
+run = "pnpm install"
+
+[tasks.setup]
+depends = ["setup:bundler", "setup:pnpm"]
+
+[tasks.server]
+depends = ["setup"]
+run = "jekyll serve"
+
+[tasks.build]
+depends = ["setup"]
+run = "jekyll build"
