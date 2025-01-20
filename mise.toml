@@ -1,2 +1,12 @@
 [tools]
 deno = "latest"
+
+[tasks.server]
+run = "deno task serve"
+
+[tasks.upgrade]
+description = "Upgrades Lume to the latest version"
+run = "deno task lume upgrade"
+
+[tasks.build]
+run = "deno task lume"
