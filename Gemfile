@@ -10,3 +10,6 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jemoji"
 end
+
+gem "csv", "~> 3.3"
+gem "logger", "~> 1.6"

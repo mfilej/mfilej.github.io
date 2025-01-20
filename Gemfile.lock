@@ -18,6 +18,7 @@ GEM
     colorator (1.1.0)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
+    csv (3.3.2)
     drb (2.2.0)
       ruby2_keywords
     em-websocket (0.5.3)
@@ -77,6 +78,7 @@ GEM
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.6.5)
     mercenary (0.4.0)
     mini_portile2 (2.8.8)
     minitest (5.22.2)
@@ -123,12 +125,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  csv (~> 3.3)
   jekyll (~> 4.3)
   jekyll-gist
   jekyll-postcss-v2
   jekyll-redirect-from
   jekyll-seo-tag
   jemoji
+  logger (~> 1.6)
   webrick (~> 1.7)
 
 BUNDLED WITH
