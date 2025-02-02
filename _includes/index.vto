@@ -6,6 +6,16 @@
     <title>Miha Filej</title>
   </head>
   <body>
+  <ol>
+    {{ for post of search.pages("category=article") }}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {{ /for }}
+  </ol>
+  <ol>
+    {{ for post of search.pages("category=twil") }}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {{ /for }}
+  </ol>
     {{ content }}
   </body>
 </html>
