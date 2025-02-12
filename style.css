@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@layer base {
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: theme("colors.gray.300");
+  }
+  a:hover {
+    color: theme("colors.gray.950");
+    text-decoration-color: theme("colors.gray.500");
+  }
+}
