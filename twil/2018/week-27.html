@@ -1,0 +1,117 @@
+<!doctype html>
+<title>Week 27</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/twil/base.css" />
+<meta name="viewport" content="width=700" />
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Week 27" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="bundle add" />
+<meta property="og:description" content="bundle add" />
+<link rel="canonical" href="https://miha.filej.net/twil/2018/week-27" />
+<meta property="og:url" content="https://miha.filej.net/twil/2018/week-27" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-07T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week 27" />
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2018-07-07T00:00:00+02:00",
+    "datePublished": "2018-07-07T00:00:00+02:00",
+    "description": "bundle add",
+    "headline": "Week 27",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://miha.filej.net/twil/2018/week-27"
+    },
+    "url": "https://miha.filej.net/twil/2018/week-27"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+
+<article class="twil">
+  <header>
+    <h1>
+      <a href="/twil">This week I learned</a>
+    </h1>
+    <p>Excerpts from my development journal</p>
+  </header>
+
+  <h2>
+    <span>Week 27</span>
+    <span class="pubdate">
+      published
+      <time datetime="2018-07-07T00:00:00+02:00"> 2018-07-07 </time>
+    </span>
+  </h2>
+
+  <h3 id="bundle-add">
+    <code class="language-plaintext highlighter-rouge">bundle add</code>
+  </h3>
+
+  <p>
+    This week I stumbled upon the
+    <code class="language-plaintext highlighter-rouge">bundle add</code>
+    command.
+    <a href="https://github.com/deivid-rodriguez/byebug#install"
+      >Byebug’s README</a
+    >
+    helpfully suggests to add the gem to the Gemfile by running:
+  </p>
+
+  <div class="language-plaintext highlighter-rouge">
+    <div class="highlight">
+      <pre class="highlight"><code>bundle add byebug --group "development, test"
+</code></pre>
+    </div>
+  </div>
+
+  <p>
+    I think it is a great use case for this command. Temporarily adding a
+    debugger is something I often need to do on projects that don’t have one
+    listed in the Gemfile. It looks like in a future version of bundler we will
+    also be able to
+    <a href="https://github.com/bundler/bundler/pull/6513">remove gems</a> via
+    <code class="language-plaintext highlighter-rouge">bundle remove</code>. In
+    this context, it is also worth mentioning
+    <code class="language-plaintext highlighter-rouge">bundle init</code>, which
+    helps you start a new project with a fresh Gemfile.
+  </p>
+
+  <h3 id="viewing-websocket-traffic-with-charles">
+    Viewing WebSocket traffic with Charles
+  </h3>
+
+  <p>
+    <a href="https://www.charlesproxy.com">Charles</a> is an amazingly useful
+    tool that has saved my bacon in many different situations: regular proxying,
+    reverse proxying, URL rewriting, DNS spoofing … This time I used it to view
+    WebSocket traffic because it wasn’t showing up in the browser’s inspector
+    window for some reason. The easiest way to find WebSockets from the list of
+    connections is to enter
+    <code class="language-plaintext highlighter-rouge">ws://</code> in the
+    <em>Filter</em> text field (or look for connections with the 101 status
+    code).
+    <a href="http://www.digitalbrix.com/blog/?p=268"
+      >Viewing web socket traffic with Charles</a
+    >
+    describes the process in more detail.
+  </p>
+
+  <p>
+    <img
+      alt="Screenshot of Charles showing WebSocket traffic"
+      src="/assets/twil/2018/week-27/charles-ws.png"
+      width="522"
+    />
+  </p>
+</article>
+
+<script
+  data-goatcounter="https://mfi.goatcounter.com/count"
+  async
+  src="//gc.zgo.at/count.js"
+></script>

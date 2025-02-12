@@ -1,0 +1,117 @@
+<!doctype html>
+<title>Week 25</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="/twil/base.css" />
+<meta name="viewport" content="width=700" />
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Week 25" />
+<meta property="og:locale" content="en_US" />
+<meta
+  name="description"
+  content="One could learn something new about the vast vim-fugitive every week and still not run out of novelties for a long time. This week I took some time to learn about the capabilities of the :Gstatus command. Until now I’ve only used it informatively, but from now on I will try to incorporate cvc (invokes git commit --verbose1), cva (same, but with --amend), and ce (amend without editing the commit message). Verbose is my preferred way of writing commits; fugitive’s non-verbose alternative is cc. &#8617;"
+/>
+<meta
+  property="og:description"
+  content="One could learn something new about the vast vim-fugitive every week and still not run out of novelties for a long time. This week I took some time to learn about the capabilities of the :Gstatus command. Until now I’ve only used it informatively, but from now on I will try to incorporate cvc (invokes git commit --verbose1), cva (same, but with --amend), and ce (amend without editing the commit message). Verbose is my preferred way of writing commits; fugitive’s non-verbose alternative is cc. &#8617;"
+/>
+<link rel="canonical" href="https://miha.filej.net/twil/2018/week-25" />
+<meta property="og:url" content="https://miha.filej.net/twil/2018/week-25" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-24T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Week 25" />
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "dateModified": "2018-06-24T00:00:00+02:00",
+    "datePublished": "2018-06-24T00:00:00+02:00",
+    "description": "One could learn something new about the vast vim-fugitive every week and still not run out of novelties for a long time. This week I took some time to learn about the capabilities of the :Gstatus command. Until now I’ve only used it informatively, but from now on I will try to incorporate cvc (invokes git commit --verbose1), cva (same, but with --amend), and ce (amend without editing the commit message). Verbose is my preferred way of writing commits; fugitive’s non-verbose alternative is cc. &#8617;",
+    "headline": "Week 25",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://miha.filej.net/twil/2018/week-25"
+    },
+    "url": "https://miha.filej.net/twil/2018/week-25"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+
+<article class="twil">
+  <header>
+    <h1>
+      <a href="/twil">This week I learned</a>
+    </h1>
+    <p>Excerpts from my development journal</p>
+  </header>
+
+  <h2>
+    <span>Week 25</span>
+    <span class="pubdate">
+      published
+      <time datetime="2018-06-24T00:00:00+02:00"> 2018-06-24 </time>
+    </span>
+  </h2>
+
+  <p>
+    One could learn something new about the vast
+    <a href="https://github.com/tpope/vim-fugitive">vim-fugitive</a> every week
+    and still not run out of novelties for a long time. This week I took some
+    time to learn about the capabilities of the
+    <code class="language-plaintext highlighter-rouge">:Gstatus</code> command.
+    Until now I’ve only used it informatively, but from now on I will try to
+    incorporate
+    <code class="language-plaintext highlighter-rouge">cvc</code> (invokes
+    <code class="language-plaintext highlighter-rouge"
+      >git commit --verbose</code
+    ><sup id="fnref:1" role="doc-noteref"
+      ><a href="#fn:1" class="footnote" rel="footnote">1</a></sup
+    >), <code class="language-plaintext highlighter-rouge">cva</code> (same, but
+    with <code class="language-plaintext highlighter-rouge">--amend</code>), and
+    <code class="language-plaintext highlighter-rouge">ce</code> (amend without
+    editing the commit message).
+  </p>
+
+  <p>
+    <code class="language-plaintext highlighter-rouge">D</code> shows the diff
+    for the selected file, and once the diff is open
+    <code class="language-plaintext highlighter-rouge">zR</code> expands all
+    folds (vim folding being one of the areas that I also need to explore at
+    some point).
+  </p>
+
+  <p>
+    <code class="language-plaintext highlighter-rouge">q</code> closes the
+    status window – this one is not new, but a lot of the time I still type
+    <code class="language-plaintext highlighter-rouge">:q</code> out of habit.
+  </p>
+
+  <p>
+    As is always the case with vim-fugitive, there are many more things to
+    discover, but I want to internalize these mappings first.
+  </p>
+
+  <div class="footnotes" role="doc-endnotes">
+    <ol>
+      <li id="fn:1" role="doc-endnote">
+        <p>
+          Verbose is my preferred way of writing commits; fugitive’s non-verbose
+          alternative is
+          <code class="language-plaintext highlighter-rouge">cc</code>. <a
+            href="#fnref:1"
+            class="reversefootnote"
+            role="doc-backlink"
+            >&#8617;</a
+          >
+        </p>
+      </li>
+    </ol>
+  </div>
+</article>
+
+<script
+  data-goatcounter="https://mfi.goatcounter.com/count"
+  async
+  src="//gc.zgo.at/count.js"
+></script>
