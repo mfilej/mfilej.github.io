@@ -18,7 +18,19 @@
 
       <h1 class="text-4xl text-gray-700 mt-6 mb-3">Miha Filej</h1>
 
-      <blockquote class="px-8 text-sm text-gray-500">Why does the other mind scream&nbsp;inside?</blockquote>
+      <blockquote id="q" class="px-8 text-sm text-gray-500"></blockquote>
+      <script type="text/javascript">
+        const quote = (n) => {
+          if (n > 7) {  return "Why does the other mind scream&nbsp;inside?"
+          } else if (n > 2) {  return "Big fan of the&nbsp;base10"
+          } else { return "Software connoisseur"}
+        }
+        const mem = "n"
+        let n = parseInt(localStorage.getItem(mem)) || 0
+        q.innerHTML = quote(n)
+        localStorage.setItem(mem, n + 1)
+      </script>
+
     </header>
 
     <section
