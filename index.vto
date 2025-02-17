@@ -46,6 +46,17 @@
         {{ /for }}
       </ul>
 
+      <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Tips</h2>
+
+      <ul class="leading-8">
+        {{ for post of search.pages("category=tips", "date=desc") }}
+        <li>
+          {{ await comp.link({ href: post.url, text: post.title }) }}
+        </li>
+        {{ /for }}
+      </ul>
+
+
       <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Bio</h2>
 
       <p class="mt-6">

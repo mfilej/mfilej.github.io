@@ -1,10 +1,9 @@
 ---
 title: Store original and edited as one photo using Pixelmator on iOS
 layout: jekyll.vto
-category: article
+category: tips
 tags:
   - ios
-redirect_from: "/store-original-modified-photo-pixelmator-ios"
 css: |
   .rebox {
     background:#000;
