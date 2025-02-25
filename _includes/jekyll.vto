@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/style.css">
     <title>{{ title }}</title>
   </head>
-  <body class="m-auto pb-32 text-lg prose prose-stone prose-pre:bg-[#E6E6E6] prose-code:before:content-none prose-code:after:content-none prose-code:text-stone-700">
+  <body class="m-auto pb-32 text-lg prose prose-stone prose-pre:bg-[var(--color-stone-100)] prose-code:before:content-none prose-code:after:content-none prose-code:text-stone-700">
     <style type="text/css">
       {{ css }}
     </style>
@@ -13,10 +13,12 @@
       <a href="/" class="text-sm font-medium">miha.filej.net</a>
       <time class="text-xs">{{ date |> date("DATE") }}</time>
     </div>
-    <article class="py-[10vh] ">
+    <article class="pt-[9vh]">
       <h1>
         {{ title }}
       </h1>
+
+      {{ if preface }}<aside class="italic text-stone-500 [&_a]:text-stone-600 [&_code]:text-stone-500"><p class="pb-1.5">{{ preface }}</p></aside>{{ /if }}
 
       {{ content }}
     </article>
