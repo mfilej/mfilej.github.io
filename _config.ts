@@ -13,7 +13,11 @@ site.add("/rebox.js");
 site.add("/img");
 site.add("/twil");
 
-site.use(date());
+site.use(
+  date({
+    formats: { YEAR: "yyyy" },
+  }),
+);
 site.use(jsx());
 site.use(mdx());
 site.use(remark());

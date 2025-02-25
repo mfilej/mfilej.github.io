@@ -1,7 +1,10 @@
 ---
 title: "jj: Updating .gitignore does not automatically untrack a file"
 layout: jekyll.vto
-category: tips
+category: article
+tags:
+  - jj
+  - tip
 ---
 
 When moving from git to Jujutsu, there is a difference you will immediately spot after editing a .gitignore file.

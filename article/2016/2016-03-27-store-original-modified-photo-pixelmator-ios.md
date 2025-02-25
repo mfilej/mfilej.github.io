@@ -1,9 +1,10 @@
 ---
 title: Store original and edited as one photo using Pixelmator on iOS
 layout: jekyll.vto
-category: tips
+category: article
 tags:
   - ios
+  - tip
 css: |
   .rebox {
     background:#000;

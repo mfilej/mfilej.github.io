@@ -36,37 +36,24 @@
     <section
       class="md:pt-8 col-span-full sm:row-start-1 sm:col-start-3 sm:col-span-4 sm:row-span-2 lg:col-span-3"
     >
-      <h2 class="font-serif text-3xl font-medium mb-4">Articles</h2>
+      <h2 class="font-serif text-3xl font-medium mb-4">Posts</h2>
 
       <ul class="leading-8">
         {{ for post of search.pages("category=article", "date=desc") }}
-        <li>
-          {{ await comp.link({ href: post.url, text: post.title }) }}
+        <li class="flex text-pink-300 gap-2 items-baseline">
+          <span title="{{ post.title }}" class="truncate">{{ await comp.link({ href: post.url, text: post.title }) }}</span>
+          <time title="{{ post.date |> date }}" datetime="{{ post.date |> date }}" class="text-xs">{{ post.date |> date("YEAR") }}</time>
         </li>
         {{ /for }}
       </ul>
 
-      <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Tips</h2>
+      <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Projects</h2>
 
-      <ul class="leading-8">
-        {{ for post of search.pages("category=tips", "date=desc") }}
-        <li>
-          {{ await comp.link({ href: post.url, text: post.title }) }}
-        </li>
-        {{ /for }}
+      <ul class="mt-6">
+        <li>{{ await comp.link({ href: "https://mmy.filej.net/", text: "Make-Model-Year" }) }}</li>
       </ul>
 
-
-      <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Bio</h2>
-
-      <p class="mt-6">
-        If, for some peculiar reason, you would like to know more about my
-        personal life, you are welcome to listen to
-        <a class="link" href="https://www.parallelpassion.com/29">
-          episode #29 of Parallel Passion</a
-        >, where Miha Rekar was kind enough to interview me about everything
-        unrelated to work.
-      </p>
+      <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Archive</h2>
 
       <p class="mt-6">
         In 2018 I experimented with writing a
