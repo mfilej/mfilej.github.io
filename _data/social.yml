@@ -1,9 +1,11 @@
 - name: GitHub
   link: https://github.com/mfilej
-- name: Glass.photo
-  link: https://glass.photo/mfi
 - name: Mastodon
   link: https://hachyderm.io/@mifa
+- name: Vimeo
+  link: https://vimeo.com/mfilej
+- name: Instagram
+  link: https://www.instagram.com/mfilej/
 - name: Twitter
   link: https://twitter.com/mfilej
 - name: Last.fm
