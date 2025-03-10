@@ -50,9 +50,16 @@
       <section>
         <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Projects</h2>
 
-        <ul class="mt-6">
-          <li>{{ await comp.link({ href: "https://mmy.filej.net/", text: "Make-Model-Year" }) }}</li>
-        </ul>
+        <ul class="mt-6 [&_p]:text-sm flex gap-2 pb-4">
+          <li class="flex flex-col gap-1">
+            <span>{{ await comp.link({ href: "https://mmy.filej.net/", text: "Make-Model-Year" }) }}</span>
+            <p>A car guessing game inspired by Wordle. My test bed for Phoenix LiveView. (<a href="https://github.com/mfilej/mmy">source</a>)</p>
+          </li>
+          <li class="flex flex-col gap-1">
+            <span>{{ await comp.link({ href: "https://github.com/mfilej/hades-compendium", text: "Hades Compendium" }) }}</span>
+            <p>Boon compendium for the video game Hades. An exercise in vibe coding.</p>
+          </li>
+        </ul
       </section>
 
       <section class="prose">
