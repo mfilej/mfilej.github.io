@@ -1,0 +1,5 @@
+[daemons.mfilej-gh-pages]
+run = "mise run server"
+auto = ["start", "stop"]
+retry = 0
+ready_port = 3000

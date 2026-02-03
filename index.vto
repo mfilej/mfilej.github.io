@@ -33,9 +33,11 @@
 
     </header>
 
-    <div class="md:pt-8 col-span-full sm:row-start-1 sm:col-start-3 sm:col-span-4 sm:row-span-2 lg:col-span-3">
+    <div class="md:pt-8 col-span-full sm:row-start-1 sm:col-start-3 sm:col-span-4 sm:row-span-2 lg:col-span-3 flex flex-col gap-8
+      [&_h2]:font-serif [&_h2]:text-3xl [&_h2]:font-medium [&_h2]:mb-4
+      [&_h3]:font-serif [&_h3]:text-xl [&_h3]:text-gray-500 [&_h3]:italic [&_h3]:mt-6 [&_h3]:mb-2">
       <section>
-        <h2 class="font-serif text-3xl font-medium mb-4">Posts</h2>
+        <h2>Posts</h2>
 
         <ul class="leading-8">
           {{ for post of search.pages("category=article", "date=desc") }}
@@ -48,22 +50,35 @@
       </section>
 
       <section>
-        <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Projects</h2>
+        <h2>Projects</h2>
 
-        <ul class="mt-6 [&_p]:text-sm flex gap-2 pb-4">
+        <h3>Built primarily by hand</h3>
+        <ul class="[&_p]:text-sm grid grid-cols-2 gap-4 pb-4">
           <li class="flex flex-col gap-1">
-            <span>{{ await comp.link({ href: "https://mmy.filej.net/", text: "Make-Model-Year" }) }}</span>
-            <p>A car guessing game inspired by Wordle. My test bed for Phoenix LiveView. (<a href="https://github.com/mfilej/mmy">source</a>)</p>
+            <span>{{ await comp.link({ href: "https://lawson.fly.dev/", text: "Lawson" }) }} <a class="text-xs" href="https://github.com/mfilej/lawson">(source)</a></span>
+            <p>Browse admission data for US law schools. Built with Phoenix LiveView.</p>
           </li>
           <li class="flex flex-col gap-1">
-            <span>{{ await comp.link({ href: "https://github.com/mfilej/hades-compendium", text: "Hades Compendium" }) }}</span>
+            <span>{{ await comp.link({ href: "https://mmy.filej.net/", text: "Make-Model-Year" }) }} <a class="text-xs" href="https://github.com/mfilej/mmy">(source)</a></span>
+            <p>A car guessing game inspired by Wordle. My test bed for Phoenix LiveView.</p>
+          </li>
+        </ul>
+
+        <h3>Built with agents</h3>
+        <ul class="[&_p]:text-sm grid grid-cols-2 gap-4 pb-4">
+          <li class="flex flex-col gap-1">
+            <span>{{ await comp.link({ href: "https://miha.filej.net/wrdl/", text: "Wrdl" }) }} <a class="text-xs" href="https://github.com/mfilej/wrdl">(source)</a></span>
+            <p>Wordle solutions archive with automated daily updates, built with Amp and Tidewave.</p>
+          </li>
+          <li class="flex flex-col gap-1">
+            <span>{{ await comp.link({ href: "https://mfilej.github.io/hades-compendium/", text: "Hades Compendium" }) }} <a class="text-xs" href="https://github.com/mfilej/hades-compendium">(source)</a></span>
             <p>Boon compendium for the video game Hades. An exercise in vibe coding.</p>
           </li>
-        </ul
+        </ul>
       </section>
 
       <section class="prose">
-        <h2 class="font-serif text-3xl font-medium mt-8 mb-4">Archive</h2>
+        <h2>Archive</h2>
 
         <p>
           In 2018 I experimented with writing a
