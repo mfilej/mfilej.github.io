@@ -1,5 +1,6 @@
 import lume from "lume/mod.ts";
 import date from "lume/plugins/date.ts";
+import extractDate from "lume/plugins/extract_date.ts";
 import mdx from "lume/plugins/mdx.ts";
 import jsx from "lume/plugins/jsx.ts";
 import remark from "lume/plugins/remark.ts";
@@ -7,6 +8,8 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import redirects from "lume/plugins/redirects.ts";
 
 const site = lume();
+
+site.use(extractDate());
 
 site.add("/style.css");
 site.add("/rebox.js");
